@@ -43,16 +43,26 @@
 #include "memory.h"
 
 // Sampling Declarations
+// 该类定义了采样器的接口，并负责生成多维采样位置序列。
 class Sampler {
 public:
     // Sampler Interface
     virtual ~Sampler();
     Sampler(int xstart, int xend, int ystart, int yend,
             int spp, float sopen, float sclose);
+
+		// 该方法将生成1个或者多个采样，返回生成的采样数量，并将采样值填入参数中；
     virtual int GetMoreSamples(Sample *sample, RNG &rng) = 0;
+
+		// 返回最大数量的采样，使得调用者对Sample的数量进行先期内存空间的分配；
     virtual int MaximumSampleCount() = 0;
+
+		// 向渲染器报告生成的光线，计算得到的辐射度值，以及最初源自GetMoreSamples方法的采样集合中的交点。
     virtual bool ReportResults(Sample *samples, const RayDifferential *rays,
         const Spectrum *Ls, const Intersection *isects, int count);
+
+		// 返回一个子采样器，最多count个，返回的这个是第num个；
+		// 注意：所有的子采样器应该全面覆盖所有的图像；
     virtual Sampler *GetSubSampler(int num, int count) = 0;
     virtual int RoundSize(int size) const = 0;
 
@@ -62,6 +72,7 @@ public:
     const float shutterOpen, shutterClose;
 protected:
     // Sampler Protected Methods
+		// 该函数负责计算像素的采样范围；是个工具函数；
     void ComputeSubWindow(int num, int count, int *xstart, int *xend, int *ystart, int *yend) const;
 };
 

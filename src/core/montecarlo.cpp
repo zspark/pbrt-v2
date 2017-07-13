@@ -168,6 +168,8 @@ void StratifiedSample2D(float *samp, int nx, int ny, RNG &rng,
 }
 
 
+// 拉丁超立方采样；
+// 也就是n-rooks采样；
 void LatinHypercube(float *samples, uint32_t nSamples, uint32_t nDim,
                     RNG &rng) {
     // Generate LHS samples along diagonal

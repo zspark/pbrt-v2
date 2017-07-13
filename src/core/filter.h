@@ -47,6 +47,9 @@ public:
     Filter(float xw, float yw)
         : xWidth(xw), yWidth(yw), invXWidth(1.f/xw), invYWidth(1.f/yw) {
     }
+
+		// 参数是相对于滤波器中心位置的偏移；
+		// 返回值用于确定采样的权值；
     virtual float Evaluate(float x, float y) const = 0;
 
     // Filter Public Data

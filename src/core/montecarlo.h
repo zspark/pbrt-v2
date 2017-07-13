@@ -61,6 +61,7 @@ struct Distribution1D {
         // Compute integral of step function at $x_i$
         cdf[0] = 0.;
         for (int i = 1; i < count+1; ++i)
+			 // 这下面的除以n是个冗余计算，后面逻辑除以funcInt会补回来；
             cdf[i] = cdf[i-1] + func[i-1] / n;
 
         // Transform step function integral into CDF

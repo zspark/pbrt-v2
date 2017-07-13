@@ -64,10 +64,13 @@ public:
 private:
     // MIPMap Private Methods
     struct ResampleWeight;
+
+	 // 用于确定对新纹素有贡献的原纹素以及贡献的权值。
+	 // 返回的是一个数组，其索引就是新纹素的位置，里面的值FirstTexel是原纹素的第一个索引，weight是其权重；
     ResampleWeight *resampleWeights(uint32_t oldres, uint32_t newres) {
         Assert(newres >= oldres);
         ResampleWeight *wt = new ResampleWeight[newres];
-        float filterwidth = 2.f;
+        const float filterwidth = 2.f;
         for (uint32_t i = 0; i < newres; ++i) {
             // Compute image resampling weights for _i_th texel
             float center = (i + .5f) * oldres / newres;
@@ -127,7 +130,8 @@ MIPMap<T>::MIPMap(uint32_t sres, uint32_t tres, const T *img, bool doTri,
         for (uint32_t t = 0; t < tres; ++t) {
             for (uint32_t s = 0; s < sPow2; ++s) {
                 // Compute texel $(s,t)$ in $s$-zoomed image
-                resampledImage[t*sPow2+s] = 0.;
+				  const int index = t*sPow2 + s;
+                resampledImage[index] = 0.;
                 for (int j = 0; j < 4; ++j) {
                     int origS = sWeights[s].firstTexel + j;
                     if (wrapMode == TEXTURE_REPEAT)
@@ -135,7 +139,7 @@ MIPMap<T>::MIPMap(uint32_t sres, uint32_t tres, const T *img, bool doTri,
                     else if (wrapMode == TEXTURE_CLAMP)
                         origS = Clamp(origS, 0, sres-1);
                     if (origS >= 0 && origS < (int)sres)
-                        resampledImage[t*sPow2+s] += sWeights[s].weight[j] *
+                        resampledImage[index] += sWeights[s].weight[j] *
                                                      img[t*sres + origS];
                 }
             }

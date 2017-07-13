@@ -52,9 +52,13 @@ class Integrator {
 public:
     // Integrator Interface
     virtual ~Integrator();
+
+		//该方法在场景创建完毕后调用（可不掉用），以使积分器执行与场景相关的计算。
     virtual void Preprocess(const Scene *scene, const Camera *camera,
                             const Renderer *renderer) {
     }
+
+		//如果积分器需要Sampler对象生成Sample对象中的采样模式，需要实现该方法；
     virtual void RequestSamples(Sampler *sampler, Sample *sample,
                                 const Scene *scene) {
     }
@@ -64,6 +68,7 @@ public:
 class SurfaceIntegrator : public Integrator {
 public:
     // SurfaceIntegrator Interface
+	  // 全部表面积分器需要实现的核心方法；该方法返回既定光线与场景几何对象间交点处的岀射辐射度。
     virtual Spectrum Li(const Scene *scene, const Renderer *renderer,
         const RayDifferential &ray, const Intersection &isect,
         const Sample *sample, RNG &rng, MemoryArena &arena) const = 0;

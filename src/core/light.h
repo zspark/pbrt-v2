@@ -60,10 +60,14 @@ public:
                     "Proceed at your own risk; your image may have errors or\n"
                     "the system may crash as a result of this.");
     }
+
+	 // 调用者负责传递场景内一点的世界空间位置，以及光照采样的时刻，最终返回到达该点的辐射度。
     virtual Spectrum Sample_L(const Point &p, float pEpsilon,
         const LightSample &ls, float time, Vector *wi, float *pdf,
         VisibilityTester *vis) const = 0;
     virtual Spectrum Power(const Scene *) const = 0;
+
+	 // 确定光源是否使用Delta分布进行描述；
     virtual bool IsDeltaLight() const = 0;
     virtual Spectrum Le(const RayDifferential &r) const;
     virtual float Pdf(const Point &p, const Vector &wi) const = 0;
@@ -84,17 +88,25 @@ protected:
 
 struct VisibilityTester {
     // VisibilityTester Public Methods
+
+	 // 可在场景中的两点间进行可见性测试。
     void SetSegment(const Point &p1, float eps1,
                     const Point &p2, float eps2, float time) {
         float dist = Distance(p1, p2);
         r = Ray(p1, (p2-p1) / dist, eps1, dist * (1.f - eps2), time);
         Assert(!r.HasNaNs());
     }
+
+	 // 确定既定方向上是否存在相关对象。
     void SetRay(const Point &p, float eps, const Vector &w, float time) {
         r = Ray(p, w, eps, INFINITY, time);
         Assert(!r.HasNaNs());
     }
+
+	 // 判断射线是否与场景中其它对象相交；
     bool Unoccluded(const Scene *scene) const;
+
+	 // 该方法用于处理经场景介质作用后的光线雨目标点之间的亮度；
     Spectrum Transmittance(const Scene *scene, const Renderer *renderer,
         const Sample *sample, RNG &rng, MemoryArena &arena) const;
     Ray r;

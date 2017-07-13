@@ -205,9 +205,14 @@ public:
     bool MatchesFlags(BxDFType flags) const {
         return (type & flags) == type;
     }
+		//根据既定方向组合，返回分布函数值；
     virtual Spectrum f(const Vector &wo, const Vector &wi) const = 0;
+
+		//针对既定出射方向，计算入射方向，并根据既定方向组合返回BxDF值。
     virtual Spectrum Sample_f(const Vector &wo, Vector *wi,
                               float u1, float u2, float *pdf) const;
+
+		//计算反射率函数
     virtual Spectrum rho(const Vector &wo, int nSamples,
                          const float *samples) const;
     virtual Spectrum rho(int nSamples, const float *samples1,

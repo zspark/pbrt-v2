@@ -41,6 +41,7 @@
 #include "film.h"
 
 // EnvironmentCamera Declarations
+// 用于生成经纬辐射度贴图。
 class EnvironmentCamera : public Camera {
 public:
     // EnvironmentCamera Public Methods
