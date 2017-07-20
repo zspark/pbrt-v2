@@ -42,6 +42,7 @@
 #include "spectrum.h"
 
 // Spherical Harmonics Declarations
+// Returns (lmax+1)^2 
 inline int SHTerms(int lmax) {
     return (lmax + 1) * (lmax + 1);
 }

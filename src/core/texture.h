@@ -48,6 +48,8 @@ class TextureMapping2D {
 public:
     // TextureMapping2D Interface
     virtual ~TextureMapping2D() { }
+
+	 // 用于生成着色点处的DifferentialGeometry，返回s,t纹理坐标；
     virtual void Map(const DifferentialGeometry &dg,
                      float *s, float *t, float *dsdx, float *dtdx,
                      float *dsdy, float *dtdy) const = 0;

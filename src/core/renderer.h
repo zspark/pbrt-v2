@@ -45,6 +45,8 @@ public:
     // Renderer Interface
     virtual ~Renderer();
     virtual void Render(const Scene *scene) = 0;
+
+	 // 计算沿着既定光线上的入射辐射度。
     virtual Spectrum Li(const Scene *scene, const RayDifferential &ray,
         const Sample *sample, RNG &rng, MemoryArena &arena,
         Intersection *isect = NULL, Spectrum *T = NULL) const = 0;

@@ -41,7 +41,7 @@
 #include "renderer.h"
 #include "parallel.h"
 
-// SamplerRenderer Declarations
+// SamplerRenderer Declaration£º
 class SamplerRenderer : public Renderer {
 public:
     // SamplerRenderer Public Methods
