@@ -179,7 +179,6 @@ void InfiniteAreaLight::SHProject(const Point &p,float pEpsilon,
   }
 }
 
-
 InfiniteAreaLight *CreateInfiniteLight(const Transform &light2world,
 													const ParamSet &paramSet){
   Spectrum L=paramSet.FindOneSpectrum("L",Spectrum(1.0));

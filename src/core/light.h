@@ -61,7 +61,11 @@ public:
 				  "the system may crash as a result of this.");
   }
 
-  // 调用者负责传递场景内一点的世界空间位置，以及光照采样的时刻，最终返回到达该点的辐射度。
+  /** 
+   * 调用者负责传递场景内一点的世界空间位置，以及光照采样的时刻，最终返回到达该点的辐射度。
+	* 该函数还负责初始化相对于光源的入射方向wi，以及初始化VisibilityTester对象；
+	* 如果光源不是点光源，该方法需要对光源表面上的一点进行随机采样。
+   */
   virtual Spectrum Sample_L(const Point &p,float pEpsilon,
 									 const LightSample &ls,float time,Vector *wi,float *pdf,
 									 VisibilityTester *vis) const=0;
@@ -117,6 +121,10 @@ class AreaLight: public Light{
 public:
   // AreaLight Interface
   AreaLight(const Transform &l2w,int ns): Light(l2w,ns){}
+
+  /**
+   * 根据光源表面上的既定点和表面法线计算出射方向上的发射辐射度L;
+  */
   virtual Spectrum L(const Point &p,const Normal &n,
 							const Vector &w) const=0;
 };

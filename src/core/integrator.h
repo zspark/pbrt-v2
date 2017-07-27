@@ -67,6 +67,7 @@ class SurfaceIntegrator: public Integrator{
 public:
   // SurfaceIntegrator Interface
 	// 全部表面积分器需要实现的核心方法；该方法返回既定光线与场景几何对象间交点处的岀射辐射度。
+  // 即光线原点处的入射辐射度；
   virtual Spectrum Li(const Scene *scene,const Renderer *renderer,
 							 const RayDifferential &ray,const Intersection &isect,
 							 const Sample *sample,RNG &rng,MemoryArena &arena) const=0;

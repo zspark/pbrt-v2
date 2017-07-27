@@ -50,6 +50,8 @@ float PhaseMieHazy(const Vector &w, const Vector &wp);
 float PhaseMieMurky(const Vector &w, const Vector &wp);
 float PhaseHG(const Vector &w, const Vector &wp, float g);
 float PhaseSchlick(const Vector &w, const Vector &wp, float g);
+
+// 描述空间某一区域内的体散射接口。
 class VolumeRegion {
 public:
     // VolumeRegion Interface
@@ -65,6 +67,8 @@ public:
     virtual float p(const Point &, const Vector &,
                     const Vector &, float time) const = 0;
     virtual Spectrum sigma_t(const Point &p, const Vector &wo, float time) const;
+
+	 // 用于计算光学厚度
     virtual Spectrum tau(const Ray &ray, float step = 1.f,
                          float offset = 0.5) const = 0;
 };

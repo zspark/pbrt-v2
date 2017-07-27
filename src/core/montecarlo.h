@@ -121,6 +121,8 @@ void RejectionSampleDisk(float *x,float *y,RNG &rng);
 Vector UniformSampleHemisphere(float u1,float u2);
 float  UniformHemispherePdf();
 Vector UniformSampleSphere(float u1,float u2);
+
+// return 1.f / (4.f * M_PI);
 float  UniformSpherePdf();
 Vector UniformSampleCone(float u1,float u2,float thetamax);
 Vector UniformSampleCone(float u1,float u2,float thetamax,

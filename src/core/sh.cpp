@@ -399,6 +399,8 @@ void SHComputeDiffuseTransfer(const Point &p,const Normal &n,
 	 c_transfer[i]=0.f;
   uint32_t scramble[2]={rng.RandomUInt(), rng.RandomUInt()};
   float *Ylm=ALLOCA(float,SHTerms(lmax));
+
+  // 我觉得下一行的nSamples应该写成2*nSamples，因为for循环里面是舍选采样，有一半的采样点是被过滤掉的。
   for(int i=0; i<nSamples; ++i){
 	 // Sample _i_th direction and compute estimate for transfer coefficients
 	 float u[2];

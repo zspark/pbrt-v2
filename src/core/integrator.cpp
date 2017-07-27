@@ -43,6 +43,7 @@ Integrator::~Integrator(){}
 
 
 // Integrator Utility Functions
+// 均匀采样所有的灯光。
 Spectrum UniformSampleAllLights(const Scene *scene,
 										  const Renderer *renderer,MemoryArena &arena,const Point &p,
 										  const Normal &n,const Vector &wo,float rayEpsilon,
