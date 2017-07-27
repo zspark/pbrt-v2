@@ -53,6 +53,8 @@ Spectrum PointLight::Sample_L(const Point &p,float pEpsilon,
   *wi=Normalize(lightPos-p);
   *pdf=1.f;
   visibility->SetSegment(p,pEpsilon,lightPos,0.,time);
+
+  // 强度除以距离的平方算出的是这个距离下的光强，光强可以用来当radiance使用（在点光源下）。
   return Intensity/DistanceSquared(lightPos,p);
 }
 

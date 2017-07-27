@@ -53,6 +53,7 @@ public:
   Sampler *GetSubSampler(int num,int count);
 private:
   // RandomSampler Private Data
+  // nSamples是每个像素的采样数量；
   int xPos,yPos,nSamples;
   float *imageSamples,*lensSamples,*timeSamples;
   int samplePos;

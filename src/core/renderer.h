@@ -44,12 +44,23 @@ class Renderer {
 public:
     // Renderer Interface
     virtual ~Renderer();
+
+	 // 核心方法，提供scene指针，计算场景图像；
     virtual void Render(const Scene *scene) = 0;
 
-	 // 计算沿着既定光线上的入射辐射度。
+	 /* 计算沿着既定光线上的入射辐射度。
+	  * sample				针对积分器中的蒙特卡洛积分提供了随机采样值；
+	  * T						若非NULL，则沿光线的体透射率将通过该参数返回；
+	  */
     virtual Spectrum Li(const Scene *scene, const RayDifferential &ray,
         const Sample *sample, RNG &rng, MemoryArena &arena,
         Intersection *isect = NULL, Spectrum *T = NULL) const = 0;
+
+	 /**
+	  * 返回体散射造成的光线衰减部分；
+	  * 【2017-07-27】上面的翻译是来自第二版的中文翻译书籍，查看了E文原版发现译者没有
+	  * 错误，但实际上Transmittance返回的是“1-体散射造成的光线衰减”，其含义恰好相反；
+	  */
     virtual Spectrum Transmittance(const Scene *scene,
         const RayDifferential &ray, const Sample *sample,
         RNG &rng, MemoryArena &arena) const = 0;

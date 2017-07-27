@@ -51,7 +51,12 @@ public:
   Sampler(int xstart,int xend,int ystart,int yend,
 			 int spp,float sopen,float sclose);
 
-  // 该方法将生成1个或者多个采样，返回生成的采样数量，并将采样值填入参数中；
+  /** 
+   * 该方法将生成1个或者多个采样，返回生成的采样数量，并将采样值填入参数中；
+	* 采样其中设置的nSamples指的是一个像素的采样数量；
+	* 该逻辑会依次遍历所有的像素，每个像素nSamples个采样；
+	* 所以该函数一共会返回nSample*Xresolution*Yresolution个不同的sample内容，
+	*/
   virtual int GetMoreSamples(Sample *sample,RNG &rng)=0;
 
   // 返回最大数量的采样，使得调用者对Sample的数量进行先期内存空间的分配；
@@ -105,6 +110,8 @@ struct Sample: public CameraSample{
 		FreeAligned(oneD);
 	 }
   }
+
+  // 复制count个自己，由堆上的数组返回；
   Sample *Duplicate(int count) const;
 
   // Sample Public Data

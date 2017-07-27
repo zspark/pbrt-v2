@@ -520,7 +520,7 @@ Spectrum BSDF::Sample_f(const Vector &woW,Vector *wiW,
 								BxDFType flags,BxDFType *sampledType) const{
   PBRT_STARTED_BSDF_SAMPLE();
   // Choose which _BxDF_ to sample
-  // 选择最后一个匹配的光源；
+  // 选择最后一个匹配的BxDF；
   int matchingComps=NumComponents(flags);
   if(matchingComps==0){
 	 *pdf=0.f;
