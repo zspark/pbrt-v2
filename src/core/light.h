@@ -123,6 +123,7 @@ public:
   AreaLight(const Transform &l2w,int ns): Light(l2w,ns){}
 
   /**
+   * 该方法是AreaLight专有。
    * 根据光源表面上的既定点和表面法线计算出射方向上的发射辐射度L;
   */
   virtual Spectrum L(const Point &p,const Normal &n,
