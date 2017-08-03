@@ -36,31 +36,35 @@
 #ifndef PBRT_SAMPLERS_STRATIFIED_H
 #define PBRT_SAMPLERS_STRATIFIED_H
 
-// samplers/stratified.h*
+ // samplers/stratified.h*
 #include "sampler.h"
 #include "film.h"
 
 // StratifiedSampler Declarations
-class StratifiedSampler : public Sampler {
+// 将采样区域分成不相交的多个区域，并在其中获取单一采样。
+class StratifiedSampler: public Sampler{
 public:
-    // StratifiedSampler Public Methods
-    StratifiedSampler(int xstart, int xend, int ystart, int yend,
-                      int xs, int ys, bool jitter, float sopen, float sclose);
-    ~StratifiedSampler();
-    int RoundSize(int size) const { return size; }
-    Sampler *GetSubSampler(int num, int count);
-    int GetMoreSamples(Sample *sample, RNG &rng);
-    int MaximumSampleCount() { return xPixelSamples * yPixelSamples; }
+  /**
+  * StratifiedSampler Public Methods
+  * xs    x方向上的分层数
+  */
+  StratifiedSampler(int xstart,int xend,int ystart,int yend,
+                    int xs,int ys,bool jitter,float sopen,float sclose);
+  ~StratifiedSampler();
+  int RoundSize(int size) const{ return size; }
+  Sampler *GetSubSampler(int num,int count);
+  int GetMoreSamples(Sample *sample,RNG &rng);
+  int MaximumSampleCount(){ return xPixelSamples * yPixelSamples; }
 private:
-    // StratifiedSampler Private Data
-    int xPixelSamples, yPixelSamples;
-    bool jitterSamples;
-    int xPos, yPos;
-    float *sampleBuf;
+  // StratifiedSampler Private Data
+  int xPixelSamples,yPixelSamples;
+  bool jitterSamples;
+  int xPos,yPos;
+  float *sampleBuf;
 };
 
 
-StratifiedSampler *CreateStratifiedSampler(const ParamSet &params, const Film *film,
-    const Camera *camera);
+StratifiedSampler *CreateStratifiedSampler(const ParamSet &params,const Film *film,
+                                           const Camera *camera);
 
 #endif // PBRT_SAMPLERS_STRATIFIED_H

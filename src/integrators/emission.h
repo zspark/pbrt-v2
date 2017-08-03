@@ -36,27 +36,27 @@
 #ifndef PBRT_INTEGRATORS_EMISSION_H
 #define PBRT_INTEGRATORS_EMISSION_H
 
-// integrators/emission.h*
+ // integrators/emission.h*
 #include "volume.h"
 #include "integrator.h"
 #include "scene.h"
 
 // EmissionIntegrator Declarations
-class EmissionIntegrator : public VolumeIntegrator {
+class EmissionIntegrator: public VolumeIntegrator{
 public:
-    // EmissionIntegrator Public Methods
-    EmissionIntegrator(float ss) { stepSize = ss; }
-    void RequestSamples(Sampler *sampler, Sample *sample, const Scene *scene);
-    Spectrum Li(const Scene *scene, const Renderer *renderer,
-            const RayDifferential &ray, const Sample *sample, RNG &rng,
-            Spectrum *transmittance, MemoryArena &arena) const;
-    Spectrum Transmittance(const Scene *scene, const Renderer *,
-            const RayDifferential &ray, const Sample *sample, RNG &rng,
-            MemoryArena &arena) const;
+  // EmissionIntegrator Public Methods
+  EmissionIntegrator(float ss){ stepSize=ss; }
+  void RequestSamples(Sampler *sampler,Sample *sample,const Scene *scene);
+  Spectrum Li(const Scene *scene,const Renderer *renderer,
+              const RayDifferential &ray,const Sample *sample,RNG &rng,
+              Spectrum *transmittance,MemoryArena &arena) const;
+  Spectrum Transmittance(const Scene *scene,const Renderer *,
+                         const RayDifferential &ray,const Sample *sample,RNG &rng,
+                         MemoryArena &arena) const;
 private:
-    // EmissionIntegrator Private Data
-    float stepSize;
-    int tauSampleOffset, scatterSampleOffset;
+  // EmissionIntegrator Private Data
+  float stepSize;
+  int tauSampleOffset,scatterSampleOffset;
 };
 
 

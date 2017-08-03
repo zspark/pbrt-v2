@@ -36,7 +36,7 @@
 #ifndef PBRT_CORE_VOLUME_H
 #define PBRT_CORE_VOLUME_H
 
-// core/volume.h*
+ // core/volume.h*
 #include "pbrt.h"
 #include "spectrum.h"
 #include "geometry.h"
@@ -44,103 +44,111 @@
 #include "integrator.h"
 
 // Volume Scattering Declarations
-float PhaseIsotropic(const Vector &w, const Vector &wp);
-float PhaseRayleigh(const Vector &w, const Vector &wp);
-float PhaseMieHazy(const Vector &w, const Vector &wp);
-float PhaseMieMurky(const Vector &w, const Vector &wp);
-float PhaseHG(const Vector &w, const Vector &wp, float g);
-float PhaseSchlick(const Vector &w, const Vector &wp, float g);
+float PhaseIsotropic(const Vector &w,const Vector &wp);
+float PhaseRayleigh(const Vector &w,const Vector &wp);
+float PhaseMieHazy(const Vector &w,const Vector &wp);
+float PhaseMieMurky(const Vector &w,const Vector &wp);
+float PhaseHG(const Vector &w,const Vector &wp,float g);
+float PhaseSchlick(const Vector &w,const Vector &wp,float g);
 
 // 描述空间某一区域内的体散射接口。
-class VolumeRegion {
+class VolumeRegion{
 public:
-    // VolumeRegion Interface
-    virtual ~VolumeRegion();
-    virtual BBox WorldBound() const = 0;
-    virtual bool IntersectP(const Ray &ray, float *t0, float *t1) const = 0;
-    virtual Spectrum sigma_a(const Point &, const Vector &,
-                             float time) const = 0;
-    virtual Spectrum sigma_s(const Point &, const Vector &,
-                             float time) const = 0;
-    virtual Spectrum Lve(const Point &, const Vector &,
-                         float time) const = 0;
-    virtual float p(const Point &, const Vector &,
-                    const Vector &, float time) const = 0;
-    virtual Spectrum sigma_t(const Point &p, const Vector &wo, float time) const;
+  // VolumeRegion Interface
+  virtual ~VolumeRegion();
+  virtual BBox WorldBound() const=0;
+  virtual bool IntersectP(const Ray &ray,float *t0,float *t1) const=0;
 
-	 // 用于计算光学厚度
-    virtual Spectrum tau(const Ray &ray, float step = 1.f,
-                         float offset = 0.5) const = 0;
+  // 返回吸收系数
+  virtual Spectrum sigma_a(const Point &,const Vector &,
+                           float time) const=0;
+
+  //返回散射系数
+  virtual Spectrum sigma_s(const Point &,const Vector &,
+                           float time) const=0;
+  //返回发射亮度
+  virtual Spectrum Lve(const Point &,const Vector &,
+                       float time) const=0;
+  // 返回既定点与时刻的相位函数值；
+  virtual float p(const Point &,const Vector &,
+                  const Vector &,float time) const=0;
+
+  // 返回衰减系数，就是a+s
+  virtual Spectrum sigma_t(const Point &p,const Vector &wo,float time) const;
+
+  // 用于计算光学厚度
+  virtual Spectrum tau(const Ray &ray,float step=1.f,
+                       float offset=0.5) const=0;
 };
 
 
-class DensityRegion : public VolumeRegion {
+class DensityRegion: public VolumeRegion{
 public:
-    // DensityRegion Public Methods
-    DensityRegion(const Spectrum &sa, const Spectrum &ss, float gg,
-                  const Spectrum &emit, const Transform &VolumeToWorld)
-        : sig_a(sa), sig_s(ss), le(emit), g(gg),
-          WorldToVolume(Inverse(VolumeToWorld)) { }
-    virtual float Density(const Point &Pobj) const = 0;
-    Spectrum sigma_a(const Point &p, const Vector &, float) const {
-        return Density(WorldToVolume(p)) * sig_a;
-    }
-    Spectrum sigma_s(const Point &p, const Vector &, float) const {
-        return Density(WorldToVolume(p)) * sig_s;
-    }
-    Spectrum sigma_t(const Point &p, const Vector &, float) const {
-        return Density(WorldToVolume(p)) * (sig_a + sig_s);
-    }
-    Spectrum Lve(const Point &p, const Vector &, float) const {
-        return Density(WorldToVolume(p)) * le;
-    }
-    float p(const Point &p, const Vector &w, const Vector &wp, float) const {
-        return PhaseHG(w, wp, g);
-    }
-    Spectrum tau(const Ray &r, float stepSize, float offset) const;
+  // DensityRegion Public Methods
+  DensityRegion(const Spectrum &sa,const Spectrum &ss,float gg,
+                const Spectrum &emit,const Transform &VolumeToWorld)
+    : sig_a(sa),sig_s(ss),le(emit),g(gg),
+    WorldToVolume(Inverse(VolumeToWorld)){}
+  virtual float Density(const Point &Pobj) const=0;
+  Spectrum sigma_a(const Point &p,const Vector &,float) const{
+    return Density(WorldToVolume(p)) * sig_a;
+  }
+  Spectrum sigma_s(const Point &p,const Vector &,float) const{
+    return Density(WorldToVolume(p)) * sig_s;
+  }
+  Spectrum sigma_t(const Point &p,const Vector &,float) const{
+    return Density(WorldToVolume(p)) * (sig_a+sig_s);
+  }
+  Spectrum Lve(const Point &p,const Vector &,float) const{
+    return Density(WorldToVolume(p)) * le;
+  }
+  float p(const Point &p,const Vector &w,const Vector &wp,float) const{
+    return PhaseHG(w,wp,g);
+  }
+  Spectrum tau(const Ray &r,float stepSize,float offset) const;
 protected:
-    // DensityRegion Protected Data
-    Spectrum sig_a, sig_s, le;
-    float g;
-    Transform WorldToVolume;
+  // DensityRegion Protected Data
+  Spectrum sig_a,sig_s,le;
+  float g;
+  Transform WorldToVolume;
 };
 
 
-class AggregateVolume : public VolumeRegion {
+class AggregateVolume: public VolumeRegion{
 public:
-    // AggregateVolume Public Methods
-    AggregateVolume(const vector<VolumeRegion *> &r);
-    ~AggregateVolume();
-    BBox WorldBound() const;
-    bool IntersectP(const Ray &ray, float *t0, float *t1) const;
-    Spectrum sigma_a(const Point &, const Vector &, float) const;
-    Spectrum sigma_s(const Point &, const Vector &, float) const;
-    Spectrum Lve(const Point &, const Vector &, float) const;
-    float p(const Point &, const Vector &, const Vector &, float) const;
-    Spectrum sigma_t(const Point &, const Vector &, float) const;
-    Spectrum tau(const Ray &ray, float, float) const;
+  // AggregateVolume Public Methods
+  AggregateVolume(const vector<VolumeRegion *> &r);
+  ~AggregateVolume();
+  BBox WorldBound() const;
+  bool IntersectP(const Ray &ray,float *t0,float *t1) const;
+  Spectrum sigma_a(const Point &,const Vector &,float) const;
+  Spectrum sigma_s(const Point &,const Vector &,float) const;
+  Spectrum Lve(const Point &,const Vector &,float) const;
+  float p(const Point &,const Vector &,const Vector &,float) const;
+  Spectrum sigma_t(const Point &,const Vector &,float) const;
+  Spectrum tau(const Ray &ray,float,float) const;
 private:
-    // AggregateVolume Private Data
-    vector<VolumeRegion *> regions;
-    BBox bound;
+  // AggregateVolume Private Data
+  vector<VolumeRegion *> regions;
+  BBox bound;
 };
 
 
-bool GetVolumeScatteringProperties(const string &name, Spectrum *sigma_a,
+bool GetVolumeScatteringProperties(const string &name,Spectrum *sigma_a,
                                    Spectrum *sigma_prime_s);
-class VolumeIntegrator : public Integrator {
+class VolumeIntegrator: public Integrator{
 public:
-    // VolumeIntegrator Interface
-    virtual Spectrum Li(const Scene *scene, const Renderer *renderer,
-        const RayDifferential &ray, const Sample *sample, RNG &rng,
-        Spectrum *transmittance, MemoryArena &arena) const = 0;
-    virtual Spectrum Transmittance(const Scene *scene,
-        const Renderer *renderer, const RayDifferential &ray,
-        const Sample *sample, RNG &rng, MemoryArena &arena) const = 0;
+  // VolumeIntegrator Interface
+  virtual Spectrum Li(const Scene *scene,const Renderer *renderer,
+                      const RayDifferential &ray,const Sample *sample,RNG &rng,
+                      Spectrum *transmittance,MemoryArena &arena) const=0;
+  virtual Spectrum Transmittance(const Scene *scene,
+                                 const Renderer *renderer,const RayDifferential &ray,
+                                 const Sample *sample,RNG &rng,MemoryArena &arena) const=0;
 };
 
 
-void SubsurfaceFromDiffuse(const Spectrum &Kd, float meanPathLength, float eta,
-        Spectrum *sigma_a, Spectrum *sigma_prime_s);
+void SubsurfaceFromDiffuse(const Spectrum &Kd,float meanPathLength,float eta,
+                           Spectrum *sigma_a,Spectrum *sigma_prime_s);
 
 #endif // PBRT_CORE_VOLUME_H

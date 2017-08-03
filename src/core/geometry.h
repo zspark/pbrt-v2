@@ -433,6 +433,7 @@ public:
         return Point(::Lerp(tx, pMin.x, pMax.x), ::Lerp(ty, pMin.y, pMax.y),
                      ::Lerp(tz, pMin.z, pMax.z));
     }
+    // 偏移的百分比
     Vector Offset(const Point &p) const {
         return Vector((p.x - pMin.x) / (pMax.x - pMin.x),
                       (p.y - pMin.y) / (pMax.y - pMin.y),

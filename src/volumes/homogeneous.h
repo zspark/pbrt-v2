@@ -40,6 +40,7 @@
 #include "volume.h"
 
 // HomogeneousVolumeDensity Declarations
+// 均一散射特征的盒状空间区域。
 class HomogeneousVolumeDensity : public VolumeRegion {
 public:
     // HomogeneousVolumeDensity Public Methods
