@@ -122,8 +122,7 @@ Spectrum EstimateDirect(const Scene *scene,const Renderer *renderer,
   Vector wi;
   float lightPdf,bsdfPdf;
   VisibilityTester visibility;
-  Spectrum Li=light->Sample_L(p,rayEpsilon,lightSample,time,
-										&wi,&lightPdf,&visibility);
+  Spectrum Li=light->Sample_L(p,rayEpsilon,lightSample,time,&wi,&lightPdf,&visibility);
   if(lightPdf>0.&&!Li.IsBlack()){
 	 Spectrum f=bsdf->f(wo,wi,flags);
 	 if(!f.IsBlack()&&visibility.Unoccluded(scene)){
@@ -142,14 +141,12 @@ Spectrum EstimateDirect(const Scene *scene,const Renderer *renderer,
   // Sample BSDF with multiple importance sampling
   if(!light->IsDeltaLight()){
 	 BxDFType sampledType;
-	 Spectrum f=bsdf->Sample_f(wo,&wi,bsdfSample,&bsdfPdf,flags,
-										&sampledType);
+	 Spectrum f=bsdf->Sample_f(wo,&wi,bsdfSample,&bsdfPdf,flags,&sampledType);
 	 if(!f.IsBlack()&&bsdfPdf>0.){
 		float weight=1.f;
 		if(!(sampledType & BSDF_SPECULAR)){
 		  lightPdf=light->Pdf(p,wi);
-		  if(lightPdf==0.)
-			 return Ld;
+		  if(lightPdf==0.) return Ld;
 		  weight=PowerHeuristic(1,bsdfPdf,1,lightPdf);
 		}
 		// Add light contribution from BSDF sampling

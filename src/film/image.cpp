@@ -74,8 +74,7 @@ ImageFilm::ImageFilm(int xres,int yres,Filter *filt,const float crop[4],
 }
 
 
-void ImageFilm::AddSample(const CameraSample &sample,
-								  const Spectrum &L){
+void ImageFilm::AddSample(const CameraSample &sample,const Spectrum &L){
   // Compute sample's raster extent
   float dimageX=sample.imageX-0.5f;
   float dimageY=sample.imageY-0.5f;

@@ -46,7 +46,7 @@ class StratifiedSampler: public Sampler{
 public:
   /**
   * StratifiedSampler Public Methods
-  * xs    x方向上的分层数
+  * xs    x方向上的分层数，表明的是一个像素内x方向分了多少层。
   */
   StratifiedSampler(int xstart,int xend,int ystart,int yend,
                     int xs,int ys,bool jitter,float sopen,float sclose);

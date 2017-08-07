@@ -36,26 +36,26 @@
 #ifndef PBRT_SAMPLERS_HALTON_H
 #define PBRT_SAMPLERS_HALTON_H
 
-// samplers/halton.h*
+ // samplers/halton.h*
 #include "sampler.h"
 #include "film.h"
 
 // HaltonSampler Declarations
-class HaltonSampler : public Sampler {
+class HaltonSampler: public Sampler{
 public:
-    HaltonSampler(int xs, int xe, int ys, int ye, int ps, float sopen, float sclose);
-    int MaximumSampleCount() { return 1; }
-    int GetMoreSamples(Sample *sample, RNG &rng);
-    Sampler *GetSubSampler(int num, int count);
-    int RoundSize(int size) const { return size; }
+  HaltonSampler(int xs,int xe,int ys,int ye,int ps,float sopen,float sclose);
+  int MaximumSampleCount(){ return 1; }
+  int GetMoreSamples(Sample *sample,RNG &rng);
+  Sampler *GetSubSampler(int num,int count);
+  int RoundSize(int size) const{ return size; }
 
 private:
-    // HaltonSampler Private Data
-    int wantedSamples, currentSample;
+  // HaltonSampler Private Data
+  int wantedSamples,currentSample;
 };
 
 
-HaltonSampler *CreateHaltonSampler(const ParamSet &params, const Film *film,
-    const Camera *camera);
+HaltonSampler *CreateHaltonSampler(const ParamSet &params,const Film *film,
+                                   const Camera *camera);
 
 #endif // PBRT_SAMPLERS_HALTON_H

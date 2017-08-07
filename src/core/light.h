@@ -73,6 +73,9 @@ public:
 
   // 确定光源是否使用Delta分布进行描述；
   virtual bool IsDeltaLight() const=0;
+
+  // 针对未与场景几何体对象碰撞的光线，无穷远区域光源须向其“贡献”辐射度。对此，可向Light基类加入一方法，沿未碰撞光线并根据当前光源返回发射辐射度。
+  // 针对其他类型光源，默认实现并不返回辐射度。
   virtual Spectrum Le(const RayDifferential &r) const;
   virtual float Pdf(const Point &p,const Vector &wi) const=0;
   virtual Spectrum Sample_L(const Scene *scene,const LightSample &ls,

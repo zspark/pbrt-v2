@@ -1,6 +1,6 @@
-<map version="0.9.0">
+<map version="1.0.1">
 <!-- To view this file, download free mind mapping software FreeMind from http://freemind.sourceforge.net -->
-<node COLOR="#990000" CREATED="1501122632132" ID="ID_461266390" MODIFIED="1501488451903">
+<node COLOR="#990000" CREATED="1501122632132" ID="ID_461266390" MODIFIED="1501813610316">
 <richcontent TYPE="NODE"><html>
   <head>
     
@@ -30,7 +30,7 @@
   </body>
 </html></richcontent>
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
-<node CREATED="1501125313702" ID="ID_267505771" MODIFIED="1501554483478" POSITION="right" TEXT="void SamplerRenderer::Render(const Scene *scene)">
+<node CREATED="1501125313702" ID="ID_267505771" MODIFIED="1501831624359" POSITION="right" TEXT="void SamplerRenderer::Render(const Scene *scene)">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
 <node COLOR="#999999" CREATED="1501125647527" ID="ID_343582769" MODIFIED="1501234599558" TEXT="// Allow integrators to do preprocessing for the scene">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="10"/>
@@ -64,7 +64,7 @@
 <node COLOR="#999999" CREATED="1501125657160" ID="ID_1249866523" MODIFIED="1501234599558" TEXT="// Allocate and initialize _sample_">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="10"/>
 </node>
-<node COLOR="#338800" CREATED="1501127505346" ID="ID_1043405659" MODIFIED="1501234599542" TEXT="Sample *sample=new Sample(sampler,surfaceIntegrator,volumeIntegrator,scene);">
+<node COLOR="#338800" CREATED="1501127505346" ID="ID_1043405659" MODIFIED="1501744199039" TEXT="Sample *sample=new Sample(sampler,surfaceIntegrator,volumeIntegrator,scene);">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
 <node CREATED="1501127733431" ID="ID_1975506111" MODIFIED="1501234599542" TEXT="if(surf) surf-&gt;RequestSamples(sampler,this,scene);">
 <richcontent TYPE="NOTE"><html>
@@ -106,30 +106,30 @@
   </head>
   <body>
     <p style="text-align: left">
-      &#160;&#160;int nPixels=camera-&gt;film-&gt;xResolution * camera-&gt;film-&gt;yResolution;
+      &#xa0;&#xa0;int nPixels=camera-&gt;film-&gt;xResolution * camera-&gt;film-&gt;yResolution;
     </p>
     <p style="text-align: left">
-      &#160;&#160;int nTasks=max(32*NumSystemCores(),nPixels/(16*16));
+      &#xa0;&#xa0;int nTasks=max(32*NumSystemCores(),nPixels/(16*16));
     </p>
     <p style="text-align: left">
-      &#160;&#160;nTasks=RoundUpPow2(nTasks);
+      &#xa0;&#xa0;nTasks=RoundUpPow2(nTasks);
     </p>
     <p style="text-align: left">
-      &#160;&#160;ProgressReporter reporter(nTasks,&quot;Rendering&quot;);
+      &#xa0;&#xa0;ProgressReporter reporter(nTasks,"Rendering");
     </p>
   </body>
 </html></richcontent>
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
 </node>
-<node CREATED="1501147689556" ID="ID_1509539625" MODIFIED="1501234599542" TEXT="vector&lt;Task *&gt; renderTasks;&#xa;for(int i=0; i&lt;nTasks; ++i)">
+<node CREATED="1501147689556" ID="ID_1509539625" MODIFIED="1501744199044" TEXT="vector&lt;Task *&gt; renderTasks;&#xa;for(int i=0; i&lt;nTasks; ++i)">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
 <node COLOR="#338800" CREATED="1501147671844" ID="ID_1898270116" MODIFIED="1501234599542" TEXT="renderTasks.push_back(new SamplerRendererTask(scene,this,camera,reporter,sampler,sample,visualizeObjectIds,nTasks-1-i,nTasks));">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
 </node>
 </node>
-<node CREATED="1501137545998" ID="ID_1937136649" MODIFIED="1501234599542" TEXT="&#xa0;&#xa0;EnqueueTasks(renderTasks);">
+<node CREATED="1501137545998" ID="ID_1937136649" MODIFIED="1501744199048" TEXT="&#xa0;&#xa0;EnqueueTasks(renderTasks);">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
-<node CREATED="1501137568065" ID="ID_492310959" MODIFIED="1501234599542" TEXT="tasks[i]-&gt;Run();">
+<node CREATED="1501137568065" ID="ID_492310959" MODIFIED="1501754671398" TEXT="tasks[i]-&gt;Run();">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
 <node COLOR="#999999" CREATED="1501139896230" ID="ID_595909183" MODIFIED="1501234599542" TEXT="// Get sub-_Sampler_ for _SamplerRendererTask_">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="10"/>
@@ -153,22 +153,22 @@
   </head>
   <body>
     <p style="text-align: left">
-      &#160;&#160;int maxSamples=sampler-&gt;MaximumSampleCount();
+      &#xa0;&#xa0;int maxSamples=sampler-&gt;MaximumSampleCount();
     </p>
     <p style="text-align: left">
-      &#160;&#160;Sample *samples=origSample-&gt;Duplicate(maxSamples);
+      &#xa0;&#xa0;Sample *samples=origSample-&gt;Duplicate(maxSamples);
     </p>
     <p style="text-align: left">
-      &#160;&#160;RayDifferential *rays=new RayDifferential[maxSamples];
+      &#xa0;&#xa0;RayDifferential *rays=new RayDifferential[maxSamples];
     </p>
     <p style="text-align: left">
-      &#160;&#160;Spectrum *Ls=new Spectrum[maxSamples];
+      &#xa0;&#xa0;Spectrum *Ls=new Spectrum[maxSamples];
     </p>
     <p style="text-align: left">
-      &#160;&#160;Spectrum *Ts=new Spectrum[maxSamples];
+      &#xa0;&#xa0;Spectrum *Ts=new Spectrum[maxSamples];
     </p>
     <p style="text-align: left">
-      &#160;&#160;Intersection *isects=new Intersection[maxSamples];
+      &#xa0;&#xa0;Intersection *isects=new Intersection[maxSamples];
     </p>
   </body>
 </html></richcontent>
@@ -187,7 +187,7 @@
 <node COLOR="#999999" CREATED="1501139940550" ID="ID_1293801259" MODIFIED="1501234599542" TEXT="// Get samples from _Sampler_ and update image">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="10"/>
 </node>
-<node COLOR="#006699" CREATED="1501139553154" ID="ID_1162917260" MODIFIED="1501575396503">
+<node COLOR="#006699" CREATED="1501139553154" ID="ID_1162917260" MODIFIED="1501814138252">
 <richcontent TYPE="NODE"><html>
   <head>
     
@@ -200,30 +200,132 @@
       while((sampleCount=sampler-&gt;GetMoreSamples(samples,rng))&gt;0)
     </p>
   </body>
-</html></richcontent>
-<richcontent TYPE="NOTE">&lt;html&gt;
-  &lt;head&gt;
+</html>
+</richcontent>
+<richcontent TYPE="NOTE"><html>
+  <head>
     
-    
-  &lt;/head&gt;
-  &lt;body&gt;
-    &lt;p&gt;
-      &amp;#36825;&amp;#37324;&amp;#20250;&amp;#29983;&amp;#25104;&amp;#37319;&amp;#26679;&amp;#28857;&amp;#30340;&amp;#25968;&amp;#25454;&amp;#65307;
-    &lt;/p&gt;
-    &lt;p&gt;
-      RandomSampler&amp;#65306;&amp;#19968;&amp;#27425;&amp;#36820;&amp;#22238;&amp;#19968;&amp;#20010;&amp;#37319;&amp;#26679;&amp;#28857;&amp;#65292;nSamples&amp;#20010;&amp;#37319;&amp;#26679;&amp;#28857;&amp;#36807;&amp;#21518;&amp;#23601;&amp;#26159;&amp;#19979;&amp;#19968;&amp;#20010;&lt;content ename=&quot;content&quot;&gt;&amp;#20687;&amp;#32032;&amp;#65307;
-    &lt;/p&gt;
-    &lt;p&gt;
-      StratifiedSampler&amp;#65306;&amp;#19968;&amp;#27425;&amp;#36820;&amp;#22238;&amp;#19968;&amp;#20010;&amp;#20687;&amp;#32032;&amp;#30340;&amp;#20840;&amp;#37096;&amp;#37319;&amp;#26679;&amp;#28857;&amp;#65292;&amp;#28982;&amp;#21518;&amp;#19979;&amp;#20010;&amp;#20687;&amp;#32032;&amp;#65307;
-    &lt;/p&gt;
-  &lt;/body&gt;
-&lt;/html&gt;
+  </head>
+  <body>
+    <p>
+      int RandomSampler::GetMoreSamples(Sample *sample,RNG &amp;rng){
+    </p>
+    <p>
+      &#160;&#160;if(samplePos==nSamples){
+    </p>
+    <p>
+      if(xPixelStart==xPixelEnd||yPixelStart==yPixelEnd)
+    </p>
+    <p>
+      return 0;
+    </p>
+    <p>
+      if(++xPos==xPixelEnd){
+    </p>
+    <p>
+      xPos=xPixelStart;
+    </p>
+    <p>
+      ++yPos;
+    </p>
+    <p>
+      }
+    </p>
+    <p>
+      if(yPos==yPixelEnd)
+    </p>
+    <p>
+      return 0;
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      for(int i=0; i&lt;5*nSamples; ++i)
+    </p>
+    <p>
+      imageSamples[i]=rng.RandomFloat();
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      // Shift image samples to pixel coordinates
+    </p>
+    <p>
+      for(int o=0; o&lt;2*nSamples; o+=2){
+    </p>
+    <p>
+      imageSamples[o]+=xPos;
+    </p>
+    <p>
+      imageSamples[o+1]+=yPos;
+    </p>
+    <p>
+      }
+    </p>
+    <p>
+      samplePos=0;
+    </p>
+    <p>
+      &#160;&#160;}
+    </p>
+    <p>
+      &#160;&#160;// Return next \mono{RandomSampler} sample point
+    </p>
+    <p>
+      &#160;&#160;sample-&gt;imageX=imageSamples[2*samplePos];
+    </p>
+    <p>
+      &#160;&#160;sample-&gt;imageY=imageSamples[2*samplePos+1];
+    </p>
+    <p>
+      &#160;&#160;sample-&gt;lensU=lensSamples[2*samplePos];
+    </p>
+    <p>
+      &#160;&#160;sample-&gt;lensV=lensSamples[2*samplePos+1];
+    </p>
+    <p>
+      &#160;&#160;sample-&gt;time=Lerp(timeSamples[samplePos],shutterOpen,shutterClose);
+    </p>
+    <p>
+      &#160;&#160;// Generate stratified samples for integrators
+    </p>
+    <p>
+      &#160;&#160;for(uint32_t i=0; i&lt;sample-&gt;n1D.size(); ++i)
+    </p>
+    <p>
+      for(uint32_t j=0; j&lt;sample-&gt;n1D[i]; ++j)
+    </p>
+    <p>
+      sample-&gt;oneD[i][j]=rng.RandomFloat();
+    </p>
+    <p>
+      &#160;&#160;for(uint32_t i=0; i&lt;sample-&gt;n2D.size(); ++i)
+    </p>
+    <p>
+      for(uint32_t j=0; j&lt;2*sample-&gt;n2D[i]; ++j)
+    </p>
+    <p>
+      sample-&gt;twoD[i][j]=rng.RandomFloat();
+    </p>
+    <p>
+      &#160;&#160;++samplePos;
+    </p>
+    <p>
+      &#160;&#160;return 1;
+    </p>
+    <p>
+      }
+    </p>
+  </body>
+</html>
 </richcontent>
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
 <node COLOR="#999999" CREATED="1501140213465" ID="ID_40415666" MODIFIED="1501234599542" TEXT="// Generate camera rays and compute radiance along rays">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="10"/>
 </node>
-<node CREATED="1501139569878" ID="ID_1174461792" MODIFIED="1501234599542" TEXT="for(int i=0; i&lt;sampleCount; ++i)">
+<node CREATED="1501139569878" ID="ID_1174461792" MODIFIED="1501754682576" TEXT="for(int i=0; i&lt;sampleCount; ++i)">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
 <node COLOR="#999999" CREATED="1501141722855" ID="ID_905670039" MODIFIED="1501234599542" TEXT="// Find camera ray for _sample[i]_">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="10"/>
@@ -268,7 +370,7 @@
       if(sampler-&gt;ReportResults(samples,rays,Ls,isects,sampleCount)){
     </p>
     <p style="text-align: left">
-      &#160;&#160;for(int i=0; i&lt;sampleCount; ++i)camera-&gt;film-&gt;AddSample(samples[i],Ls[i]);
+      &#xa0;&#xa0;for(int i=0; i&lt;sampleCount; ++i)camera-&gt;film-&gt;AddSample(samples[i],Ls[i]);
     </p>
     <p style="text-align: left">
       }
@@ -300,22 +402,22 @@
       delete sampler;
     </p>
     <p>
-      &#160;&#160;delete[] samples;
+      &#xa0;&#xa0;delete[] samples;
     </p>
     <p>
-      &#160;&#160;delete[] rays;
+      &#xa0;&#xa0;delete[] rays;
     </p>
     <p>
-      &#160;&#160;delete[] Ls;
+      &#xa0;&#xa0;delete[] Ls;
     </p>
     <p>
-      &#160;&#160;delete[] Ts;
+      &#xa0;&#xa0;delete[] Ts;
     </p>
     <p>
-      &#160;&#160;delete[] isects;
+      &#xa0;&#xa0;delete[] isects;
     </p>
     <p>
-      &#160;&#160;reporter.Update();
+      &#xa0;&#xa0;reporter.Update();
     </p>
   </body>
 </html></richcontent>
@@ -330,13 +432,13 @@
   </head>
   <body>
     <p style="text-align: left">
-      &#160;&#160;WaitForAllTasks();
+      &#xa0;&#xa0;WaitForAllTasks();
     </p>
     <p style="text-align: left">
-      &#160;&#160;for(uint32_t i=0; i&lt;renderTasks.size(); ++i)delete renderTasks[i];
+      &#xa0;&#xa0;for(uint32_t i=0; i&lt;renderTasks.size(); ++i)delete renderTasks[i];
     </p>
     <p style="text-align: left">
-      &#160;&#160;reporter.Done();
+      &#xa0;&#xa0;reporter.Done();
     </p>
   </body>
 </html></richcontent>
@@ -352,7 +454,10 @@
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
 </node>
 </node>
-<node CREATED="1501158278298" ID="ID_1991648994" MODIFIED="1501552819581" POSITION="right" TEXT="Spectrum SamplerRenderer::Li(const Scene *scene,const RayDifferential &amp;ray,const Sample *sample,RNG &amp;rng,MemoryArena &amp;arena,Intersection *isect,Spectrum *T)">
+<node CREATED="1501158278298" ID="ID_1991648994" MODIFIED="1501744198863" POSITION="right" TEXT="Spectrum SamplerRenderer::Li(const Scene *scene,const RayDifferential &amp;ray,const Sample *sample,RNG &amp;rng,MemoryArena &amp;arena,Intersection *isect,Spectrum *T)">
+<linktarget COLOR="#b0b0b0" DESTINATION="ID_1991648994" ENDARROW="Default" ENDINCLINATION="108;-15;" ID="Arrow_ID_303581661" SOURCE="ID_444853147" STARTARROW="None" STARTINCLINATION="-581;501;"/>
+<linktarget COLOR="#b0b0b0" DESTINATION="ID_1991648994" ENDARROW="Default" ENDINCLINATION="458;160;" ID="Arrow_ID_235931306" SOURCE="ID_1630674246" STARTARROW="None" STARTINCLINATION="65;170;"/>
+<linktarget COLOR="#b0b0b0" DESTINATION="ID_1991648994" ENDARROW="Default" ENDINCLINATION="458;160;" ID="Arrow_ID_1395068675" SOURCE="ID_167951652" STARTARROW="None" STARTINCLINATION="65;170;"/>
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
 <node COLOR="#999999" CREATED="1501158303994" ID="ID_1006302197" MODIFIED="1501234461793" TEXT="// Allocate local variables for _isect_ and _T_ if needed">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="10"/>
@@ -360,9 +465,9 @@
 <node COLOR="#338800" CREATED="1501158380066" ID="ID_449137693" MODIFIED="1501234461777" TEXT="Spectrum localT;&#xa;if(!T) T=&amp;localT;&#xa;Intersection localIsect;&#xa;if(!isect) isect=&amp;localIsect;&#xa;Spectrum Li=0.f;">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
 </node>
-<node CREATED="1501158400066" ID="ID_1034243452" MODIFIED="1501234461777" TEXT="if(scene-&gt;Intersect(ray,isect))">
+<node CREATED="1501158400066" ID="ID_1034243452" MODIFIED="1501744199051" TEXT="if(scene-&gt;Intersect(ray,isect))">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
-<node CREATED="1501154229887" ID="ID_770764746" MODIFIED="1501552655399" TEXT="Li=surfaceIntegrator-&gt;Li(scene,this,ray,*isect,sample,rng,arena);">
+<node CREATED="1501154229887" ID="ID_770764746" MODIFIED="1501831495374" TEXT="Li=surfaceIntegrator-&gt;Li(scene,this,ray,*isect,sample,rng,arena);">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
 <node COLOR="#999999" CREATED="1501154393999" ID="ID_1769148932" MODIFIED="1501234461777" TEXT="// Compute emitted and reflected light at ray intersection point">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="10"/>
@@ -373,7 +478,7 @@
 <node COLOR="#999999" CREATED="1501154410199" ID="ID_226975413" MODIFIED="1501234461777" TEXT="// Evaluate BSDF at hit point">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="10"/>
 </node>
-<node COLOR="#338800" CREATED="1501154471808" ID="ID_212894413" MODIFIED="1501234461777" TEXT="BSDF *bsdf = isect.GetBSDF(ray, arena);">
+<node COLOR="#338800" CREATED="1501154471808" FOLDED="true" ID="ID_212894413" MODIFIED="1501744196212" TEXT="BSDF *bsdf = isect.GetBSDF(ray, arena);">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
 <node COLOR="#999999" CREATED="1501156121481" ID="ID_716514095" MODIFIED="1501234461777" TEXT="// Allocate _BSDF_, possibly doing bump mapping with _bumpMap_">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="10"/>
@@ -381,11 +486,11 @@
 <node CREATED="1501210518505" ID="ID_1890187580" MODIFIED="1501234461777" TEXT=" dg.ComputeDifferentials(ray);">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
 </node>
-<node CREATED="1501210524825" FOLDED="true" ID="ID_1608468653" MODIFIED="1501488221116" TEXT="BSDF *bsdf = primitive-&gt;GetBSDF(dg, ObjectToWorld, arena);">
+<node CREATED="1501210524825" FOLDED="true" ID="ID_1608468653" MODIFIED="1501744196205" TEXT="BSDF *bsdf = primitive-&gt;GetBSDF(dg, ObjectToWorld, arena);">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
 <node COLOR="#338800" CREATED="1501210582857" ID="ID_871405071" MODIFIED="1501210609577" TEXT="DifferentialGeometry dgs;"/>
 <node CREATED="1501210587369" ID="ID_1483967973" MODIFIED="1501210589354" TEXT="shape-&gt;GetShadingGeometry(ObjectToWorld, dg, &amp;dgs);"/>
-<node CREATED="1501210591761" ID="ID_744835466" MODIFIED="1501488196780" TEXT="return material-&gt;GetBSDF(dg, dgs, arena);">
+<node CREATED="1501210591761" FOLDED="true" ID="ID_744835466" MODIFIED="1501744196201" TEXT="return material-&gt;GetBSDF(dg, dgs, arena);">
 <node CREATED="1501156134265" ID="ID_611700583" MODIFIED="1501156139501">
 <richcontent TYPE="NODE"><html>
   <head>
@@ -396,34 +501,34 @@
       DifferentialGeometry dgs;
     </p>
     <p style="text-align: left">
-      &#160;&#160;&#160;&#160;if (bumpMap)
+      &#xa0;&#xa0;&#xa0;&#xa0;if (bumpMap)
     </p>
     <p style="text-align: left">
-      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Bump(bumpMap, dgGeom, dgShading, &amp;dgs);
+      &#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;Bump(bumpMap, dgGeom, dgShading, &amp;dgs);
     </p>
     <p style="text-align: left">
-      &#160;&#160;&#160;&#160;else
+      &#xa0;&#xa0;&#xa0;&#xa0;else
     </p>
     <p style="text-align: left">
-      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;dgs = dgShading;
+      &#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;dgs = dgShading;
     </p>
     <p style="text-align: left">
-      &#160;&#160;&#160;&#160;BSDF *bsdf = BSDF_ALLOC(arena, BSDF)(dgs, dgGeom.nn);
+      &#xa0;&#xa0;&#xa0;&#xa0;BSDF *bsdf = BSDF_ALLOC(arena, BSDF)(dgs, dgGeom.nn);
     </p>
     <p style="text-align: left">
-      &#160;&#160;&#160;&#160;Spectrum R = Kr-&gt;Evaluate(dgs).Clamp();
+      &#xa0;&#xa0;&#xa0;&#xa0;Spectrum R = Kr-&gt;Evaluate(dgs).Clamp();
     </p>
     <p style="text-align: left">
-      &#160;&#160;&#160;&#160;if (!R.IsBlack())
+      &#xa0;&#xa0;&#xa0;&#xa0;if (!R.IsBlack())
     </p>
     <p style="text-align: left">
-      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;bsdf-&gt;Add(BSDF_ALLOC(arena, SpecularReflection)(R,
+      &#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;bsdf-&gt;Add(BSDF_ALLOC(arena, SpecularReflection)(R,
     </p>
     <p style="text-align: left">
-      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;BSDF_ALLOC(arena, FresnelNoOp)()));
+      &#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;BSDF_ALLOC(arena, FresnelNoOp)()));
     </p>
     <p style="text-align: left">
-      &#160;&#160;&#160;&#160;return bsdf;
+      &#xa0;&#xa0;&#xa0;&#xa0;return bsdf;
     </p>
   </body>
 </html></richcontent>
@@ -443,7 +548,7 @@
 <node COLOR="#999999" CREATED="1501154438079" ID="ID_1606661081" MODIFIED="1501234461777" TEXT="// Compute emitted light if ray hit an area light source">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="10"/>
 </node>
-<node CREATED="1501154568303" ID="ID_915802934" MODIFIED="1501234461777" TEXT="L += isect.Le(wo);">
+<node CREATED="1501154568303" FOLDED="true" ID="ID_915802934" MODIFIED="1501744196212" TEXT="L += isect.Le(wo);">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
 <node CREATED="1501210768474" ID="ID_1475449129" MODIFIED="1501234461777" TEXT="const AreaLight *area = primitive-&gt;GetAreaLight();">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
@@ -455,12 +560,12 @@
 <node COLOR="#999999" CREATED="1501154448519" ID="ID_725044199" MODIFIED="1501234461777" TEXT="// Add contribution of each light source">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="10"/>
 </node>
-<node CREATED="1501154579016" ID="ID_1169883430" MODIFIED="1501234461777" TEXT="for (uint32_t i = 0; i &lt; scene-&gt;lights.size(); ++i) ">
+<node CREATED="1501154579016" ID="ID_1169883430" MODIFIED="1501744367519" TEXT="for (uint32_t i = 0; i &lt; scene-&gt;lights.size(); ++i) ">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
 <node COLOR="#338800" CREATED="1501154624719" ID="ID_276644104" MODIFIED="1501234461777" TEXT="Vector wi;float pdf;VisibilityTester visibility;">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
 </node>
-<node CREATED="1501154657128" ID="ID_1501515829" MODIFIED="1501234461777" TEXT="Spectrum Li = scene-&gt;lights[i]-&gt;Sample_L(p, isect.rayEpsilon,LightSample(rng), ray.time, &amp;wi, &amp;pdf, &amp;visibility);">
+<node CREATED="1501154657128" ID="ID_1501515829" MODIFIED="1501831507039" TEXT="Spectrum Li = scene-&gt;lights[i]-&gt;Sample_L(p, isect.rayEpsilon,LightSample(rng), ray.time, &amp;wi, &amp;pdf, &amp;visibility);">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
 <node CREATED="1501155470552" ID="ID_1861122130" MODIFIED="1501234461777">
 <richcontent TYPE="NODE"><html>
@@ -491,19 +596,19 @@
 <node CREATED="1501154674511" ID="ID_1574574756" MODIFIED="1501234461777" TEXT=" Spectrum f = bsdf-&gt;f(wo, wi);">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
 </node>
-<node CREATED="1501154682672" ID="ID_995696333" MODIFIED="1501234461777" TEXT="if (!f.IsBlack() &amp;&amp; visibility.Unoccluded(scene))">
+<node CREATED="1501154682672" ID="ID_995696333" MODIFIED="1501831510070" TEXT="if (!f.IsBlack() &amp;&amp; visibility.Unoccluded(scene))">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
 <node CREATED="1501154688623" ID="ID_777834603" MODIFIED="1501234461762" TEXT="L += f * Li * AbsDot(wi, n) *visibility.Transmittance(scene, renderer,sample, rng, arena) / pdf;">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
 </node>
 </node>
 </node>
-<node CREATED="1501154592959" ID="ID_1031088743" MODIFIED="1501552837802" TEXT="if (ray.depth + 1 &lt; maxDepth)">
+<node CREATED="1501154592959" ID="ID_1031088743" MODIFIED="1501744366426" TEXT="if (ray.depth + 1 &lt; maxDepth)">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
 <node COLOR="#999999" CREATED="1501154727263" ID="ID_976006635" MODIFIED="1501234461762" TEXT=" // Trace rays for specular reflection and refraction">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="10"/>
 </node>
-<node CREATED="1501154733968" FOLDED="true" ID="ID_1641369673" MODIFIED="1501552681466" TEXT="L += SpecularReflect(ray, bsdf, rng, isect, renderer, scene, sample,arena);">
+<node CREATED="1501154733968" FOLDED="true" ID="ID_1641369673" MODIFIED="1501744373116" TEXT="L += SpecularReflect(ray, bsdf, rng, isect, renderer, scene, sample,arena);">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
 <node COLOR="#338800" CREATED="1501161161652" ID="ID_557770827" MODIFIED="1501161171373">
 <richcontent TYPE="NODE"><html>
@@ -528,12 +633,12 @@
 </node>
 <node CREATED="1501161178076" ID="ID_796875059" MODIFIED="1501161188746" TEXT="Spectrum f=bsdf-&gt;Sample_f(wo,&amp;wi,BSDFSample(rng),&amp;pdf, BxDFType(BSDF_REFLECTION|BSDF_SPECULAR));"/>
 <node COLOR="#338800" CREATED="1501161204037" ID="ID_345290455" MODIFIED="1501161206621" TEXT=" Spectrum L=0.f;"/>
-<node CREATED="1501161214524" ID="ID_1619390903" MODIFIED="1501161215723" TEXT="if(pdf&gt;0.f&amp;&amp;!f.IsBlack()&amp;&amp;AbsDot(wi,n)!=0.f)">
+<node CREATED="1501161214524" FOLDED="true" ID="ID_1619390903" MODIFIED="1501744196201" TEXT="if(pdf&gt;0.f&amp;&amp;!f.IsBlack()&amp;&amp;AbsDot(wi,n)!=0.f)">
 <node COLOR="#999999" CREATED="1501161220893" ID="ID_224369119" MODIFIED="1501161223421" TEXT="// Compute ray differential _rd_ for specular reflection">
 <font NAME="SansSerif" SIZE="10"/>
 </node>
 <node CREATED="1501161230212" ID="ID_1642119104" MODIFIED="1501161230434" TEXT="RayDifferential rd(p,wi,ray,isect.rayEpsilon);"/>
-<node CREATED="1501161239197" FOLDED="true" ID="ID_1712290826" MODIFIED="1501161307218" TEXT="if(ray.hasDifferentials)">
+<node CREATED="1501161239197" FOLDED="true" ID="ID_1712290826" MODIFIED="1501744196116" TEXT="if(ray.hasDifferentials)">
 <node CREATED="1501161250852" ID="ID_1859597264" MODIFIED="1501161299389">
 <richcontent TYPE="NODE"><html>
   <head>
@@ -584,7 +689,7 @@
 </node>
 <node CREATED="1501161332293" ID="ID_957208511" MODIFIED="1501161332556" TEXT="return L;"/>
 </node>
-<node CREATED="1501154743279" FOLDED="true" ID="ID_206889962" MODIFIED="1501552838676" TEXT="L += SpecularTransmit(ray, bsdf, rng, isect, renderer, scene, sample,arena);">
+<node CREATED="1501154743279" FOLDED="true" ID="ID_206889962" MODIFIED="1501744196209" TEXT="L += SpecularTransmit(ray, bsdf, rng, isect, renderer, scene, sample,arena);">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
 <node COLOR="#338800" CREATED="1501161530164" ID="ID_1035974868" MODIFIED="1501161742588">
 <richcontent TYPE="NODE"><html>
@@ -609,12 +714,12 @@
 </node>
 <node CREATED="1501161579029" ID="ID_351934902" MODIFIED="1501161607102" TEXT="Spectrum f=bsdf-&gt;Sample_f(wo,&amp;wi,BSDFSample(rng),&amp;pdf,&#xa;BxDFType(BSDF_TRANSMISSION|BSDF_SPECULAR));"/>
 <node COLOR="#338800" CREATED="1501161204037" ID="ID_1713033387" MODIFIED="1501161206621" TEXT=" Spectrum L=0.f;"/>
-<node CREATED="1501161214524" ID="ID_1805254364" MODIFIED="1501161215723" TEXT="if(pdf&gt;0.f&amp;&amp;!f.IsBlack()&amp;&amp;AbsDot(wi,n)!=0.f)">
+<node CREATED="1501161214524" FOLDED="true" ID="ID_1805254364" MODIFIED="1501744196202" TEXT="if(pdf&gt;0.f&amp;&amp;!f.IsBlack()&amp;&amp;AbsDot(wi,n)!=0.f)">
 <node COLOR="#999999" CREATED="1501161220893" ID="ID_912661433" MODIFIED="1501161223421" TEXT="// Compute ray differential _rd_ for specular reflection">
 <font NAME="SansSerif" SIZE="10"/>
 </node>
 <node CREATED="1501161230212" ID="ID_1960747999" MODIFIED="1501161230434" TEXT="RayDifferential rd(p,wi,ray,isect.rayEpsilon);"/>
-<node CREATED="1501161239197" FOLDED="true" ID="ID_1615077168" MODIFIED="1501552676662" TEXT="if(ray.hasDifferentials)">
+<node CREATED="1501161239197" FOLDED="true" ID="ID_1615077168" MODIFIED="1501744196117" TEXT="if(ray.hasDifferentials)">
 <node CREATED="1501161250852" ID="ID_1461343360" MODIFIED="1501161699198">
 <richcontent TYPE="NODE"><html>
   <head>
@@ -701,7 +806,7 @@
 </node>
 </node>
 </node>
-<node CREATED="1501158421945" FOLDED="true" ID="ID_705614495" MODIFIED="1501554462590" TEXT="else">
+<node CREATED="1501158421945" ID="ID_705614495" MODIFIED="1501744199056" TEXT="else">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
 <node COLOR="#999999" CREATED="1501158429478" ID="ID_1930260112" MODIFIED="1501234461746" TEXT="// Handle ray that doesn&apos;t intersect any geometry">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="10"/>
@@ -710,12 +815,12 @@
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
 </node>
 </node>
-<node CREATED="1501158455234" ID="ID_5168828" MODIFIED="1501554096527" TEXT="Spectrum Lvi=volumeIntegrator-&gt;Li(scene,this,ray,sample,rng,T,arena);">
+<node CREATED="1501158455234" FOLDED="true" ID="ID_5168828" MODIFIED="1501744352045" TEXT="Spectrum Lvi=volumeIntegrator-&gt;Li(scene,this,ray,sample,rng,T,arena);">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
 <node COLOR="#338800" CREATED="1501505841130" ID="ID_1315644671" MODIFIED="1501554332754" TEXT="VolumeRegion *vr=scene-&gt;volumeRegion;"/>
 <node COLOR="#338800" CREATED="1501554333384" ID="ID_1270844555" MODIFIED="1501554335638" TEXT="Assert(sample!=NULL);"/>
 <node COLOR="#338800" CREATED="1501554321748" ID="ID_1064655232" MODIFIED="1501554324126" TEXT="float t0,t1;"/>
-<node CREATED="1501505859650" ID="ID_958468324" MODIFIED="1501554348359" TEXT="if(!vr||!vr-&gt;IntersectP(ray,&amp;t0,&amp;t1)||(t1-t0)==0.f)">
+<node CREATED="1501505859650" FOLDED="true" ID="ID_958468324" MODIFIED="1501744196217" TEXT="if(!vr||!vr-&gt;IntersectP(ray,&amp;t0,&amp;t1)||(t1-t0)==0.f)">
 <node CREATED="1501554349940" ID="ID_164902455" MODIFIED="1501554351580" TEXT="  *T=Spectrum(1.f);   return 0.f;"/>
 </node>
 <node COLOR="#999999" CREATED="1501505886281" ID="ID_1469492745" MODIFIED="1501505887543" TEXT="// Do emission-only volume integration in _vr_">
@@ -727,7 +832,7 @@
 </node>
 <node COLOR="#338800" CREATED="1501505911210" ID="ID_1143038255" MODIFIED="1501505926890" TEXT="int nSamples=Ceil2Int((t1-t0)/stepSize);&#xa;float step=(t1-t0)/nSamples;&#xa;Spectrum Tr(1.f);&#xa;Point p=ray(t0),pPrev;&#xa;Vector w=-ray.d;"/>
 <node CREATED="1501505936657" ID="ID_360437361" MODIFIED="1501505938296" TEXT="t0+=sample-&gt;oneD[scatterSampleOffset][0]*step;"/>
-<node CREATED="1501505945530" ID="ID_1652728775" MODIFIED="1501505946768" TEXT="for(int i=0; i&lt;nSamples; ++i,t0+=step)">
+<node CREATED="1501505945530" ID="ID_1652728775" MODIFIED="1501744340914" TEXT="for(int i=0; i&lt;nSamples; ++i,t0+=step)">
 <node COLOR="#999999" CREATED="1501505954281" ID="ID_1490331239" MODIFIED="1501505956357" TEXT="// Advance to sample at _t0_ and update _T_">
 <font NAME="SansSerif" SIZE="10"/>
 </node>
@@ -738,7 +843,7 @@
 <node COLOR="#999999" CREATED="1501505962010" ID="ID_1557069938" MODIFIED="1501505963163" TEXT="// Possibly terminate ray marching if transmittance is small">
 <font NAME="SansSerif" SIZE="10"/>
 </node>
-<node CREATED="1501506031394" ID="ID_1706651117" MODIFIED="1501506032896" TEXT="if(Tr.y()&lt;1e-3)">
+<node CREATED="1501506031394" ID="ID_1706651117" MODIFIED="1501744345011" TEXT="if(Tr.y()&lt;1e-3)">
 <node CREATED="1501506040305" ID="ID_1399281766" MODIFIED="1501506041953" TEXT="const float continueProb=.5f;"/>
 <node CREATED="1501506058650" ID="ID_1520706702" MODIFIED="1501506063281" TEXT="if(rng.RandomFloat()&gt;continueProb){&#xa;        Tr=0.f;&#xa;        break;&#xa;      }"/>
 <node CREATED="1501506072770" ID="ID_902870302" MODIFIED="1501506074592" TEXT="Tr/=continueProb;"/>

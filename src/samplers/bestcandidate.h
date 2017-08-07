@@ -36,7 +36,7 @@
 #ifndef PBRT_SAMPLERS_BESTCANDIDATE_H
 #define PBRT_SAMPLERS_BESTCANDIDATE_H
 
-// samplers/bestcandidate.h*
+ // samplers/bestcandidate.h*
 #include "sampler.h"
 #include "paramset.h"
 #include "film.h"
@@ -47,44 +47,44 @@
                            SQRT_SAMPLE_TABLE_SIZE)
 
 // BestCandidateSampler Declarations
-class BestCandidateSampler : public Sampler {
+class BestCandidateSampler: public Sampler{
 public:
-    // BestCandidateSampler Public Methods
-    BestCandidateSampler(int xstart, int xend, int ystart, int yend,
-                         int nPixelSamples, float sopen, float sclose)
-        : Sampler(xstart, xend, ystart, yend, nPixelSamples, sopen, sclose) {
-        tableWidth = (float)SQRT_SAMPLE_TABLE_SIZE /
-                     (float)sqrtf(nPixelSamples);
-        xTileStart = Floor2Int(xstart / tableWidth);
-        xTileEnd = Floor2Int(xend / tableWidth);
-        yTileStart = Floor2Int(ystart / tableWidth);
-        yTileEnd = Floor2Int(yend / tableWidth);
-        xTile = xTileStart;
-        yTile = yTileStart;
-        tableOffset = 0;
-      // Update sample shifts
-      RNG tileRng(xTile + (yTile<<8));
-      for (int i = 0; i < 3; ++i)
-          sampleOffsets[i] = tileRng.RandomFloat();
-    }
-    Sampler *GetSubSampler(int num, int count);
-    int RoundSize(int size) const {
-        return RoundUpPow2(size);
-    }
-    int MaximumSampleCount() { return 1; }
-    int GetMoreSamples(Sample *sample, RNG &rng);
+  // BestCandidateSampler Public Methods
+  BestCandidateSampler(int xstart,int xend,int ystart,int yend,
+                       int nPixelSamples,float sopen,float sclose)
+    : Sampler(xstart,xend,ystart,yend,nPixelSamples,sopen,sclose){
+    tableWidth=(float)SQRT_SAMPLE_TABLE_SIZE/(float)sqrtf(nPixelSamples);
+    xTileStart=Floor2Int(xstart/tableWidth);
+    xTileEnd=Floor2Int(xend/tableWidth);
+    yTileStart=Floor2Int(ystart/tableWidth);
+    yTileEnd=Floor2Int(yend/tableWidth);
+    xTile=xTileStart;
+    yTile=yTileStart;
+    tableOffset=0;
+    // Update sample shifts
+    RNG tileRng(xTile+(yTile<<8));
+    for(int i=0; i<3; ++i)
+      sampleOffsets[i]=tileRng.RandomFloat();
+  }
+  Sampler *GetSubSampler(int num,int count);
+  int RoundSize(int size) const{
+    return RoundUpPow2(size);
+  }
+  int MaximumSampleCount(){ return 1; }
+  int GetMoreSamples(Sample *sample,RNG &rng);
 private:
-    // BestCandidateSampler Private Data
-    float tableWidth;
-    int tableOffset;
-    int xTileStart, xTileEnd, yTileStart, yTileEnd;
-    int xTile, yTile;
-    static const float sampleTable[SAMPLE_TABLE_SIZE][5];
-    float sampleOffsets[3];
+  // BestCandidateSampler Private Data
+  // 表格x方向有几个象素。
+  float tableWidth;
+  int tableOffset;
+  int xTileStart,xTileEnd,yTileStart,yTileEnd;
+  int xTile,yTile;
+  static const float sampleTable[SAMPLE_TABLE_SIZE][5];
+  float sampleOffsets[3];
 };
 
 
-BestCandidateSampler *CreateBestCandidateSampler(const ParamSet &params, const Film *film,
-    const Camera *camera);
+BestCandidateSampler *CreateBestCandidateSampler(const ParamSet &params,const Film *film,
+                                                 const Camera *camera);
 
 #endif // PBRT_SAMPLERS_BESTCANDIDATE_H
