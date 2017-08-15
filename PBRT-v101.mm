@@ -61,18 +61,15 @@
 <node CREATED="1500862035305" ID="ID_482734171" MODIFIED="1501818010681" TEXT="DiffusePRTIntegrator">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
 </node>
-<node CREATED="1500879574572" ID="ID_105334429" MODIFIED="1501818647306" TEXT="DirectLightIntegraor">
-<richcontent TYPE="NOTE">&lt;html&gt;
-  &lt;head&gt;
+<node CREATED="1500879574572" ID="ID_105334429" MODIFIED="1502093705960" TEXT="DirectLightIntegraor">
+<richcontent TYPE="NOTE"><html>
+  <head>
     
-    
-  &lt;/head&gt;
-  &lt;body&gt;
-    &lt;p&gt;
-      &amp;#27492;&amp;#31867;&amp;#31215;&amp;#20998;&amp;#22120;&amp;#19987;&amp;#27880;&amp;#20110;&amp;#30452;&amp;#25509;&amp;#20809;&amp;#29031;&amp;#30340;&amp;#26576;&amp;#20123;&amp;#20851;&amp;#38190;&amp;#32454;&amp;#33410;&lt;content ename=&quot;content&quot;&gt;&amp;#20869;&amp;#23481;&amp;#65292;&amp;#24573;&amp;#30053;&amp;#38750;&amp;#33258;&amp;#21457;&amp;#20809;&amp;#23545;&amp;#35937;&amp;#30340;&amp;#38388;&amp;#25509;&amp;#20142;&amp;#24230;&amp;#12290;
-    &lt;/p&gt;
-  &lt;/body&gt;
-&lt;/html&gt;</richcontent>
+  </head>
+  <body>
+    &lt;html&gt; &lt;head&gt; &lt;/head&gt; &lt;body&gt; &lt;p&gt; &amp;#27492;&amp;#31867;&amp;#31215;&amp;#20998;&amp;#22120;&amp;#19987;&amp;#27880;&amp;#20110;&amp;#30452;&amp;#25509;&amp;#20809;&amp;#29031;&amp;#30340;&amp;#26576;&amp;#20123;&amp;#20851;&amp;#38190;&amp;#32454;&amp;#33410;&lt;content ename=&quot;content&quot;&gt;&amp;#20869;&amp;#23481;&amp;#65292;&amp;#24573;&amp;#30053;&amp;#38750;&amp;#33258;&amp;#21457;&amp;#20809;&amp;#23545;&amp;#35937;&amp;#30340;&amp;#38388;&amp;#25509;&amp;#20142;&amp;#24230;&amp;#12290; &lt;/p&gt; &lt;/body&gt; &lt;/html&gt;
+  </body>
+</html></richcontent>
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
 </node>
 </node>

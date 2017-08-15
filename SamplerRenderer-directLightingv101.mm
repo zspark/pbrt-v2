@@ -28,8 +28,7 @@
       <i><font size="4">-MirrorMaterial-</font></i>
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
 <node CREATED="1501125313702" ID="ID_267505771" MODIFIED="1501831832036" POSITION="right" TEXT="void SamplerRenderer::Render(const Scene *scene)">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
@@ -46,8 +45,7 @@
       DirectLightIntegrator has no logic
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
 </node>
 <node CREATED="1501125697803" ID="ID_718690332" MODIFIED="1501829839379" TEXT="volumeIntegrator-&gt;Preprocess(scene,camera,this);">
@@ -60,16 +58,15 @@
       TODO
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
 </node>
 <node COLOR="#999999" CREATED="1501125657160" ID="ID_1249866523" MODIFIED="1501829839379" TEXT="// Allocate and initialize _sample_">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="10"/>
 </node>
-<node COLOR="#338800" CREATED="1501127505346" ID="ID_1043405659" MODIFIED="1501829839379" TEXT="Sample *sample=new Sample(sampler,surfaceIntegrator,volumeIntegrator,scene);">
+<node COLOR="#338800" CREATED="1501127505346" ID="ID_1043405659" MODIFIED="1502197429126" TEXT="Sample *sample=new Sample(sampler,surfaceIntegrator,volumeIntegrator,scene);">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
-<node CREATED="1501127733431" ID="ID_1975506111" MODIFIED="1501829839379" TEXT="if(surf) surf-&gt;RequestSamples(sampler,this,scene);">
+<node CREATED="1501127733431" ID="ID_1975506111" MODIFIED="1502197431698" TEXT="if(surf) surf-&gt;RequestSamples(sampler,this,scene);">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
 <node CREATED="1501812211036" ID="ID_101059767" MODIFIED="1501829839379" TEXT="if(strategy==SAMPLE_ALL_UNIFORM)">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
@@ -148,8 +145,7 @@
       TODO
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
 </node>
 <node CREATED="1501127746254" ID="ID_1694085567" MODIFIED="1501829839378" TEXT="AllocateSampleMemory()">
@@ -241,14 +237,13 @@
       MaximumSampleCount() in StratifiedSampler returns&#160;&#19968;&#20010;&#20687;&#32032;&#20013;&#25152;&#26377;&#30340;&#37319;&#26679;&#28857;&#12290;
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
 </node>
 <node COLOR="#999999" CREATED="1501139940550" ID="ID_1293801259" MODIFIED="1501829839374" TEXT="// Get samples from _Sampler_ and update image">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="10"/>
 </node>
-<node COLOR="#338800" CREATED="1501814476241" FOLDED="true" ID="ID_629848443" MODIFIED="1501829839374" TEXT="int sampleCount=sampler-&gt;GetMoreSamples(samples,rng);">
+<node COLOR="#338800" CREATED="1501814476241" ID="ID_629848443" MODIFIED="1502197473579" TEXT="int sampleCount=sampler-&gt;GetMoreSamples(samples,rng);">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
 <node CREATED="1501814524350" ID="ID_1180328839" MODIFIED="1501814525677" TEXT="if(yPos==yPixelEnd) return 0;"/>
 <node COLOR="#338800" CREATED="1501814530223" ID="ID_1159445154" MODIFIED="1501814564460" TEXT="int nSamples=xPixelSamples * yPixelSamples;"/>
@@ -307,8 +302,7 @@
       while(sampleCount&gt;0)
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
 <node COLOR="#999999" CREATED="1501140213465" ID="ID_40415666" MODIFIED="1501829839374" TEXT="// Generate camera rays and compute radiance along rays">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="10"/>
@@ -328,8 +322,7 @@
       handle depth of field, and rayWeight is always 1.0f in perspective camera
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
 </node>
 <node CREATED="1501139596811" ID="ID_1330192585" MODIFIED="1501829839373" TEXT="rays[i].ScaleDifferentials(1.f/sqrtf(sampler-&gt;samplesPerPixel));">
@@ -446,7 +439,7 @@
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
 </node>
 </node>
-<node COLOR="#006699" CREATED="1501158278298" ID="ID_1991648994" MODIFIED="1501829877636" POSITION="right" TEXT="Spectrum SamplerRenderer::Li(const Scene *scene,const RayDifferential &amp;ray,const Sample *sample,RNG &amp;rng,MemoryArena &amp;arena,Intersection *isect,Spectrum *T)">
+<node COLOR="#006699" CREATED="1501158278298" ID="ID_1991648994" MODIFIED="1502104115626" POSITION="right" TEXT="Spectrum SamplerRenderer::Li(const Scene *scene,const RayDifferential &amp;ray,const Sample *sample,RNG &amp;rng,MemoryArena &amp;arena,Intersection *isect,Spectrum *T)">
 <linktarget COLOR="#b0b0b0" DESTINATION="ID_1991648994" ENDARROW="Default" ENDINCLINATION="108;-15;" ID="Arrow_ID_303581661" SOURCE="ID_444853147" STARTARROW="None" STARTINCLINATION="-581;501;"/>
 <linktarget COLOR="#b0b0b0" DESTINATION="ID_1991648994" ENDARROW="Default" ENDINCLINATION="458;160;" ID="Arrow_ID_235931306" SOURCE="ID_1630674246" STARTARROW="None" STARTINCLINATION="65;170;"/>
 <linktarget COLOR="#b0b0b0" DESTINATION="ID_1991648994" ENDARROW="Default" ENDINCLINATION="458;160;" ID="Arrow_ID_1395068675" SOURCE="ID_167951652" STARTARROW="None" STARTINCLINATION="65;170;"/>
@@ -459,7 +452,7 @@
 </node>
 <node CREATED="1501158400066" ID="ID_1034243452" MODIFIED="1501829839364" TEXT="if(scene-&gt;Intersect(ray,isect))">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
-<node CREATED="1501154229887" ID="ID_770764746" MODIFIED="1501829880582" TEXT="Li=surfaceIntegrator-&gt;Li(scene,this,ray,*isect,sample,rng,arena);">
+<node CREATED="1501154229887" ID="ID_770764746" MODIFIED="1502197375641" TEXT="Li=surfaceIntegrator-&gt;Li(scene,this,ray,*isect,sample,rng,arena);">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
 <node COLOR="#338800" CREATED="1501154459127" ID="ID_743437454" MODIFIED="1501829839364" TEXT="Spectrum L(0.);">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
@@ -467,7 +460,7 @@
 <node COLOR="#999999" CREATED="1501154410199" ID="ID_226975413" MODIFIED="1501829839364" TEXT="// Evaluate BSDF at hit point">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="10"/>
 </node>
-<node COLOR="#338800" CREATED="1501154471808" FOLDED="true" ID="ID_212894413" MODIFIED="1501829839364" TEXT="BSDF *bsdf = isect.GetBSDF(ray, arena);">
+<node COLOR="#338800" CREATED="1501154471808" ID="ID_212894413" MODIFIED="1502197230010" TEXT="BSDF *bsdf = isect.GetBSDF(ray, arena);">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
 <node COLOR="#999999" CREATED="1501156121481" ID="ID_716514095" MODIFIED="1501234461777" TEXT="// Allocate _BSDF_, possibly doing bump mapping with _bumpMap_">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="10"/>
@@ -475,7 +468,7 @@
 <node CREATED="1501210518505" ID="ID_1890187580" MODIFIED="1501234461777" TEXT=" dg.ComputeDifferentials(ray);">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
 </node>
-<node CREATED="1501210524825" FOLDED="true" ID="ID_1608468653" MODIFIED="1501744196205" TEXT="BSDF *bsdf = primitive-&gt;GetBSDF(dg, ObjectToWorld, arena);">
+<node CREATED="1501210524825" ID="ID_1608468653" MODIFIED="1502197232655" TEXT="BSDF *bsdf = primitive-&gt;GetBSDF(dg, ObjectToWorld, arena);">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
 <node COLOR="#338800" CREATED="1501210582857" ID="ID_871405071" MODIFIED="1501210609577" TEXT="DifferentialGeometry dgs;"/>
 <node CREATED="1501210587369" ID="ID_1483967973" MODIFIED="1501210589354" TEXT="shape-&gt;GetShadingGeometry(ObjectToWorld, dg, &amp;dgs);"/>
@@ -546,14 +539,14 @@
 <node COLOR="#999999" CREATED="1501154448519" ID="ID_725044199" MODIFIED="1501829839362" TEXT="// Compute direct lighting for _DirectLightingIntegrator_ integrator">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="10"/>
 </node>
-<node CREATED="1501817680500" ID="ID_1702740476" MODIFIED="1501829839362" TEXT="if(scene-&gt;lights.size()&gt;0)">
+<node CREATED="1501817680500" ID="ID_1702740476" MODIFIED="1502104284968" TEXT="if(scene-&gt;lights.size()&gt;0)">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
 <node COLOR="#999999" CREATED="1501817696403" ID="ID_1702746994" MODIFIED="1501829839362" TEXT=" // Apply direct lighting strategy">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="10"/>
 </node>
-<node CREATED="1501817707200" ID="ID_1642923554" MODIFIED="1501829839362" TEXT="switch(strategy)">
+<node CREATED="1501817707200" ID="ID_1642923554" MODIFIED="1502197256198" TEXT="switch(strategy)">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
-<node CREATED="1501817714009" ID="ID_1290193181" MODIFIED="1501829839362" TEXT="case SAMPLE_ALL_UNIFORM: ">
+<node CREATED="1501817714009" FOLDED="true" ID="ID_1290193181" MODIFIED="1502197258297" TEXT="case SAMPLE_ALL_UNIFORM: ">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
 <node COLOR="#006699" CREATED="1501817723970" ID="ID_434151811" MODIFIED="1501829839361" TEXT="L+=UniformSampleAllLights(scene,renderer,arena,p,n,wo, isect.rayEpsilon,ray.time,bsdf,sample,rng, lightSampleOffsets,bsdfSampleOffsets);">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
@@ -564,7 +557,7 @@
 </node>
 <node CREATED="1501817761555" ID="ID_1725094209" MODIFIED="1501829839360" TEXT="case SAMPLE_ONE_UNIFORM:">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
-<node COLOR="#006699" CREATED="1501817767474" ID="ID_1930341964" MODIFIED="1501832709563" TEXT="L+=UniformSampleOneLight(scene,renderer,arena,p,n,wo,isect.rayEpsilon,ray.time,bsdf,sample,rng,lightNumOffset,lightSampleOffsets,bsdfSampleOffsets);">
+<node COLOR="#006699" CREATED="1501817767474" ID="ID_1930341964" MODIFIED="1502104347799" TEXT="L+=UniformSampleOneLight(scene,renderer,arena,p,n,wo,isect.rayEpsilon,ray.time,bsdf,sample,rng,lightNumOffset,lightSampleOffsets,bsdfSampleOffsets);">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
 <node COLOR="#999999" CREATED="1501818933894" ID="ID_1720509460" MODIFIED="1501829839359" TEXT="// Randomly choose a single light to sample, _light_">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="10"/>
@@ -623,7 +616,7 @@
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
 </node>
 </node>
-<node COLOR="#006699" CREATED="1501819084334" ID="ID_1756847472" MODIFIED="1501832224001" TEXT="return (float)nLights * EstimateDirect(scene,renderer,arena,light,p,n,wo,rayEpsilon,time,bsdf,rng,lightSample,bsdfSample,BxDFType(BSDF_ALL &amp; ~BSDF_SPECULAR));">
+<node COLOR="#006699" CREATED="1501819084334" FOLDED="true" ID="ID_1756847472" MODIFIED="1502104350686" TEXT="return (float)nLights * EstimateDirect(scene,renderer,arena,light,p,n,wo,rayEpsilon,time,bsdf,rng,lightSample,bsdfSample,BxDFType(BSDF_ALL &amp; ~BSDF_SPECULAR));">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
 <node COLOR="#338800" CREATED="1501828302798" ID="ID_752035083" MODIFIED="1501829839357" TEXT=" Spectrum Ld(0.);">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>

@@ -63,7 +63,6 @@ private:
   float *sampleBuf;
 };
 
-
 StratifiedSampler *CreateStratifiedSampler(const ParamSet &params,const Film *film,
                                            const Camera *camera);
 

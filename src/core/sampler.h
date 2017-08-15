@@ -60,6 +60,7 @@ public:
   virtual int GetMoreSamples(Sample *sample,RNG &rng)=0;
 
   // 返回最大数量的采样，使得调用者对Sample的数量进行先期内存空间的分配；
+  // 每一个批次最大的采样数量;
   virtual int MaximumSampleCount()=0;
 
   // 向渲染器报告生成的光线，计算得到的辐射度值，以及最初源自GetMoreSamples方法的采样集合中的交点。

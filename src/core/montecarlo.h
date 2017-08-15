@@ -51,6 +51,7 @@ static const float OneMinusEpsilon=0x1.fffffep-1;
 #endif
 
 // Monte Carlo Utility Declarations
+// CDF是映射随机变量u的。
 struct Distribution1D{
   // Distribution1D Public Methods
   Distribution1D(const float *f,int n){
@@ -81,6 +82,13 @@ struct Distribution1D{
     delete[] func;
     delete[] cdf;
   }
+
+  /**
+   * 连续采样；
+   * @u       0，1之间的随机值
+   * @pdf     返回该u值对应的概率密度
+   * @off     返回在数组中的偏移；
+   */
   float SampleContinuous(float u,float *pdf,int *off=NULL) const{
     // Find surrounding CDF segments and _offset_
     float *ptr=std::upper_bound(cdf,cdf+count+1,u);
@@ -142,14 +150,13 @@ inline float CosineHemispherePdf(float costheta,float phi){
   return costheta * INV_PI;
 }
 
-
 void UniformSampleTriangle(float ud1,float ud2,float *u,float *v);
+
 struct Distribution2D{
   // Distribution2D Public Methods
   Distribution2D(const float *data,int nu,int nv);
   ~Distribution2D();
-  void SampleContinuous(float u0,float u1,float uv[2],
-                        float *pdf) const{
+  void SampleContinuous(float u0,float u1,float uv[2],float *pdf) const{
     float pdfs[2];
     int v;
     uv[1]=pMarginal->SampleContinuous(u1,&pdfs[1],&v);
