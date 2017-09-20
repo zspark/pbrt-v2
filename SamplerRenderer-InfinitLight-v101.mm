@@ -1,6 +1,6 @@
 <map version="1.0.1">
 <!-- To view this file, download free mind mapping software FreeMind from http://freemind.sourceforge.net -->
-<node COLOR="#990000" CREATED="1501122632132" ID="ID_461266390" MODIFIED="1501813610316">
+<node COLOR="#990000" CREATED="1501122632132" ID="ID_461266390" MODIFIED="1503371690452">
 <richcontent TYPE="NODE"><html>
   <head>
     
@@ -22,13 +22,14 @@
       <font size="4"><i>-PerspectiveCamera-</i></font>
     </p>
     <p style="text-align: center">
-      <font size="4"><i>-PointLight-</i></font>
+      <font size="4"><i>-InfiniteAreaLight-</i></font>
     </p>
     <p style="text-align: center">
       <font size="4"><i>-MirrorMaterial-</i></font>
     </p>
   </body>
-</html></richcontent>
+</html>
+</richcontent>
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
 <node CREATED="1501125313702" ID="ID_267505771" MODIFIED="1502196433043" POSITION="right" TEXT="void SamplerRenderer::Render(const Scene *scene)">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>

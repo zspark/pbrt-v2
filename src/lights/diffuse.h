@@ -54,6 +54,10 @@ public:
     Spectrum Power(const Scene *) const;
     bool IsDeltaLight() const { return false; }
     float Pdf(const Point &, const Vector &) const;
+
+    /**
+     * P 是intercestion中的交点
+     */
     Spectrum Sample_L(const Point &P, float pEpsilon, const LightSample &ls, float time,
         Vector *wo, float *pdf, VisibilityTester *visibility) const;
     Spectrum Sample_L(const Scene *scene, const LightSample &ls, float u1, float u2,

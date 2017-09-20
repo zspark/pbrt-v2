@@ -88,6 +88,7 @@ struct Distribution1D{
    * @u       0，1之间的随机值
    * @pdf     返回该u值对应的概率密度
    * @off     返回在数组中的偏移；
+   * returns  偏移在0，1之间的插值位置;
    */
   float SampleContinuous(float u,float *pdf,int *off=NULL) const{
     // Find surrounding CDF segments and _offset_
