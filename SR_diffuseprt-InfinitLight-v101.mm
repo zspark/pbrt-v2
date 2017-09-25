@@ -1,6 +1,6 @@
 <map version="1.0.1">
 <!-- To view this file, download free mind mapping software FreeMind from http://freemind.sourceforge.net -->
-<node COLOR="#990000" CREATED="1501122632132" ID="ID_461266390" MODIFIED="1501813610316">
+<node COLOR="#990000" CREATED="1501122632132" ID="ID_461266390" MODIFIED="1503371690452">
 <richcontent TYPE="NODE"><html>
   <head>
     
@@ -22,13 +22,14 @@
       <font size="4"><i>-PerspectiveCamera-</i></font>
     </p>
     <p style="text-align: center">
-      <font size="4"><i>-PointLight-</i></font>
+      <font size="4"><i>-InfiniteAreaLight-</i></font>
     </p>
     <p style="text-align: center">
       <font size="4"><i>-MirrorMaterial-</i></font>
     </p>
   </body>
-</html></richcontent>
+</html>
+</richcontent>
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
 <node CREATED="1501125313702" ID="ID_267505771" MODIFIED="1502196433043" POSITION="right" TEXT="void SamplerRenderer::Render(const Scene *scene)">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
@@ -452,23 +453,11 @@
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
 </node>
 </node>
-<node CREATED="1501158278298" ID="ID_1991648994" MODIFIED="1506322540574" POSITION="right" TEXT="Spectrum SamplerRenderer::Li(const Scene *scene,const RayDifferential &amp;ray,const Sample *sample,RNG &amp;rng,MemoryArena &amp;arena,Intersection *isect,Spectrum *T)">
-<richcontent TYPE="NOTE"><html>
-  <head>
-    
-  </head>
-  <body>
-    <p>
-      integrator
-    </p>
-  </body>
-</html>
-</richcontent>
+<node CREATED="1501158278298" ID="ID_1991648994" MODIFIED="1502192567977" POSITION="right" TEXT="Spectrum SamplerRenderer::Li(const Scene *scene,const RayDifferential &amp;ray,const Sample *sample,RNG &amp;rng,MemoryArena &amp;arena,Intersection *isect,Spectrum *T)">
 <linktarget COLOR="#b0b0b0" DESTINATION="ID_1991648994" ENDARROW="Default" ENDINCLINATION="108;-15;" ID="Arrow_ID_303581661" SOURCE="ID_444853147" STARTARROW="None" STARTINCLINATION="-581;501;"/>
 <linktarget COLOR="#b0b0b0" DESTINATION="ID_1991648994" ENDARROW="Default" ENDINCLINATION="458;160;" ID="Arrow_ID_235931306" SOURCE="ID_1630674246" STARTARROW="None" STARTINCLINATION="65;170;"/>
 <linktarget COLOR="#b0b0b0" DESTINATION="ID_1991648994" ENDARROW="Default" ENDINCLINATION="458;160;" ID="Arrow_ID_1395068675" SOURCE="ID_167951652" STARTARROW="None" STARTINCLINATION="65;170;"/>
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
-<icon BUILTIN="messagebox_warning"/>
 <node COLOR="#999999" CREATED="1501158303994" ID="ID_1006302197" MODIFIED="1501234461793" TEXT="// Allocate local variables for _isect_ and _T_ if needed">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="10"/>
 </node>

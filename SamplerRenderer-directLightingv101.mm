@@ -556,7 +556,7 @@
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
 </node>
 </node>
-<node CREATED="1501817761555" FOLDED="true" ID="ID_1725094209" MODIFIED="1505879888216" TEXT="case SAMPLE_ONE_UNIFORM:">
+<node CREATED="1501817761555" ID="ID_1725094209" MODIFIED="1505981566179" TEXT="case SAMPLE_ONE_UNIFORM:">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
 <node COLOR="#006699" CREATED="1501817767474" ID="ID_1930341964" MODIFIED="1502104347799" TEXT="L+=UniformSampleOneLight(scene,renderer,arena,p,n,wo,isect.rayEpsilon,ray.time,bsdf,sample,rng,lightNumOffset,lightSampleOffsets,bsdfSampleOffsets);">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
