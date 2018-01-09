@@ -163,6 +163,9 @@ void InfiniteAreaLight::SHProject(const Point &p,float pEpsilon,
         Spectrum Le=Spectrum(radianceMap->Texel(0,phi,theta),
                              SPECTRUM_ILLUMINANT);
         SHEvaluate(w,lmax,Ylm);
+
+
+				// 下面书上说是利用2D Riemann和怎么计算的，P.743中文
         for(int i=0; i<SHTerms(lmax); ++i)
           coeffs[i]+=Le * Ylm[i]*sintheta[theta]*
           (M_PI/ntheta) * (2.f * M_PI/nphi);

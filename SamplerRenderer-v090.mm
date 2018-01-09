@@ -30,7 +30,7 @@
   </body>
 </html></richcontent>
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
-<node CREATED="1501125313702" ID="ID_267505771" MODIFIED="1502196433043" POSITION="right" TEXT="void SamplerRenderer::Render(const Scene *scene)">
+<node CREATED="1501125313702" FOLDED="true" ID="ID_267505771" MODIFIED="1515502793807" POSITION="right" TEXT="void SamplerRenderer::Render(const Scene *scene)">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
 <node COLOR="#999999" CREATED="1501125647527" ID="ID_343582769" MODIFIED="1501234599558" TEXT="// Allow integrators to do preprocessing for the scene">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="10"/>
@@ -452,7 +452,7 @@
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
 </node>
 </node>
-<node CREATED="1501158278298" ID="ID_1991648994" MODIFIED="1506322540574" POSITION="right" TEXT="Spectrum SamplerRenderer::Li(const Scene *scene,const RayDifferential &amp;ray,const Sample *sample,RNG &amp;rng,MemoryArena &amp;arena,Intersection *isect,Spectrum *T)">
+<node CREATED="1501158278298" ID="ID_1991648994" MODIFIED="1515502760978" POSITION="right" TEXT="Spectrum SamplerRenderer::Li(const Scene *scene,const RayDifferential &amp;ray,const Sample *sample,RNG &amp;rng,MemoryArena &amp;arena,Intersection *isect,Spectrum *T)">
 <richcontent TYPE="NOTE"><html>
   <head>
     
@@ -476,7 +476,7 @@
 </node>
 <node CREATED="1501158400066" ID="ID_1034243452" MODIFIED="1514377040449" TEXT="if(scene-&gt;Intersect(ray,isect))">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
-<node CREATED="1501154229887" ID="ID_770764746" MODIFIED="1501831495374" TEXT="Li=surfaceIntegrator-&gt;Li(scene,this,ray,*isect,sample,rng,arena);">
+<node CREATED="1501154229887" FOLDED="true" ID="ID_770764746" MODIFIED="1515502763858" TEXT="Li=surfaceIntegrator-&gt;Li(scene,this,ray,*isect,sample,rng,arena);">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
 <node COLOR="#999999" CREATED="1501154393999" ID="ID_1769148932" MODIFIED="1501234461777" TEXT="// Compute emitted and reflected light at ray intersection point">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="10"/>

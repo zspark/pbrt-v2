@@ -471,6 +471,8 @@ Spectrum BxDF::rho(const Vector &w,int nSamples,
     Vector wi;
     float pdf=0.f;
     Spectrum f=Sample_f(w,&wi,samples[2*i],samples[2*i+1],&pdf);
+
+		// use monte carlo to calculate integration.
     if(pdf>0.) r+=f * AbsCosTheta(wi)/pdf;
   }
   return r/float(nSamples);
