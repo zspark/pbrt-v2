@@ -1,6 +1,6 @@
 <map version="1.0.1">
 <!-- To view this file, download free mind mapping software FreeMind from http://freemind.sourceforge.net -->
-<node COLOR="#990000" CREATED="1501122632132" ID="ID_461266390" MODIFIED="1503371690452">
+<node COLOR="#990000" CREATED="1501122632132" ID="ID_461266390" MODIFIED="1506322636188">
 <richcontent TYPE="NODE"><html>
   <head>
     
@@ -10,7 +10,7 @@
       <font size="5">SamplerRenderer </font>
     </p>
     <p style="text-align: center">
-      <i><font size="4">-WhittedIntegrator- </font></i>
+      <i><font size="4">-DiffuseIntegrator- </font></i>
     </p>
     <p style="text-align: center">
       <font size="4"><i>-EmissionIntegrator-</i></font>
@@ -31,7 +31,7 @@
 </html>
 </richcontent>
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
-<node CREATED="1501125313702" ID="ID_267505771" MODIFIED="1502196433043" POSITION="right" TEXT="void SamplerRenderer::Render(const Scene *scene)">
+<node CREATED="1501125313702" FOLDED="true" ID="ID_267505771" MODIFIED="1506322675233" POSITION="right" TEXT="void SamplerRenderer::Render(const Scene *scene)">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
 <node COLOR="#999999" CREATED="1501125647527" ID="ID_343582769" MODIFIED="1501234599558" TEXT="// Allow integrators to do preprocessing for the scene">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="10"/>
@@ -453,11 +453,21 @@
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
 </node>
 </node>
-<node CREATED="1501158278298" ID="ID_1991648994" MODIFIED="1502192567977" POSITION="right" TEXT="Spectrum SamplerRenderer::Li(const Scene *scene,const RayDifferential &amp;ray,const Sample *sample,RNG &amp;rng,MemoryArena &amp;arena,Intersection *isect,Spectrum *T)">
+<node COLOR="#990000" CREATED="1501158278298" ID="ID_1991648994" MODIFIED="1506322798359" POSITION="right" TEXT="Spectrum SamplerRenderer::Li(const Scene *scene,const RayDifferential &amp;ray,const Sample *sample,RNG &amp;rng,MemoryArena &amp;arena,Intersection *isect,Spectrum *T)">
+<richcontent TYPE="NOTE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Renderer
+    </p>
+  </body>
+</html>
+</richcontent>
 <linktarget COLOR="#b0b0b0" DESTINATION="ID_1991648994" ENDARROW="Default" ENDINCLINATION="108;-15;" ID="Arrow_ID_303581661" SOURCE="ID_444853147" STARTARROW="None" STARTINCLINATION="-581;501;"/>
-<linktarget COLOR="#b0b0b0" DESTINATION="ID_1991648994" ENDARROW="Default" ENDINCLINATION="458;160;" ID="Arrow_ID_235931306" SOURCE="ID_1630674246" STARTARROW="None" STARTINCLINATION="65;170;"/>
-<linktarget COLOR="#b0b0b0" DESTINATION="ID_1991648994" ENDARROW="Default" ENDINCLINATION="458;160;" ID="Arrow_ID_1395068675" SOURCE="ID_167951652" STARTARROW="None" STARTINCLINATION="65;170;"/>
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
+<icon BUILTIN="messagebox_warning"/>
 <node COLOR="#999999" CREATED="1501158303994" ID="ID_1006302197" MODIFIED="1501234461793" TEXT="// Allocate local variables for _isect_ and _T_ if needed">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="10"/>
 </node>
@@ -466,15 +476,31 @@
 </node>
 <node CREATED="1501158400066" ID="ID_1034243452" MODIFIED="1501744199051" TEXT="if(scene-&gt;Intersect(ray,isect))">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
-<node CREATED="1501154229887" ID="ID_770764746" MODIFIED="1501831495374" TEXT="Li=surfaceIntegrator-&gt;Li(scene,this,ray,*isect,sample,rng,arena);">
+<node COLOR="#990000" CREATED="1501154229887" ID="ID_770764746" MODIFIED="1506322821734" TEXT="Li=surfaceIntegrator-&gt;Li(scene,this,ray,*isect,sample,rng,arena);">
+<richcontent TYPE="NOTE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      integrator
+    </p>
+  </body>
+</html>
+</richcontent>
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
-<node COLOR="#999999" CREATED="1501154393999" ID="ID_1769148932" MODIFIED="1501234461777" TEXT="// Compute emitted and reflected light at ray intersection point">
-<font NAME="DejaVu Sans Mono for Powerline" SIZE="10"/>
-</node>
+<icon BUILTIN="messagebox_warning"/>
 <node COLOR="#338800" CREATED="1501154459127" ID="ID_743437454" MODIFIED="1501234461777" TEXT="Spectrum L(0.);">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
 </node>
-<node COLOR="#999999" CREATED="1501154410199" ID="ID_226975413" MODIFIED="1501234461777" TEXT="// Evaluate BSDF at hit point">
+<node COLOR="#338800" CREATED="1506322865218" ID="ID_578779989" MODIFIED="1506322884746" TEXT="Vector wo = -ray.d;">
+<font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
+</node>
+<node COLOR="#999999" CREATED="1501154410199" ID="ID_226975413" MODIFIED="1506322960733" TEXT="// Compute emitted light if ray hit an area light source">
+<font NAME="DejaVu Sans Mono for Powerline" SIZE="10"/>
+</node>
+<node CREATED="1506322981523" ID="ID_322400861" MODIFIED="1506322982383" TEXT="L += isect.Le(wo);"/>
+<node COLOR="#999999" CREATED="1506323001675" ID="ID_660378092" MODIFIED="1506323004525" TEXT="// Evaluate BSDF at hit point">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="10"/>
 </node>
 <node COLOR="#338800" CREATED="1501154471808" FOLDED="true" ID="ID_212894413" MODIFIED="1501744196212" TEXT="BSDF *bsdf = isect.GetBSDF(ray, arena);">
@@ -541,271 +567,224 @@
 <node COLOR="#999999" CREATED="1501154417726" ID="ID_523848725" MODIFIED="1501234461777" TEXT="// Initialize common variables for Whitted integrator">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="10"/>
 </node>
-<node COLOR="#338800" CREATED="1501154550271" ID="ID_429850703" MODIFIED="1501234461777" TEXT="const Point &amp;p = bsdf-&gt;dgShading.p;&#xa;const Normal &amp;n = bsdf-&gt;dgShading.nn;&#xa;Vector wo = -ray.d;">
+<node COLOR="#338800" CREATED="1501154550271" ID="ID_429850703" MODIFIED="1506323024400" TEXT="const Point &amp;p = bsdf-&gt;dgShading.p;&#xa;const Normal &amp;n = bsdf-&gt;dgShading.nn;">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
 </node>
-<node COLOR="#999999" CREATED="1501154438079" ID="ID_1606661081" MODIFIED="1501234461777" TEXT="// Compute emitted light if ray hit an area light source">
+<node COLOR="#999999" CREATED="1501154438079" ID="ID_1606661081" MODIFIED="1506323055100" TEXT="// Compute reflected radiance using diffuse PRT">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="10"/>
 </node>
-<node CREATED="1501154568303" ID="ID_915802934" MODIFIED="1502104279678" TEXT="L += isect.Le(wo);">
-<font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
-<node CREATED="1501210768474" ID="ID_1475449129" MODIFIED="1501234461777" TEXT="const AreaLight *area = primitive-&gt;GetAreaLight();">
-<font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
+<node COLOR="#999999" CREATED="1506323067563" ID="ID_374824875" MODIFIED="1506323070061" TEXT="// Project diffuse transfer function at point to SH">
+<font NAME="DejaVu Sans Mono for Powerline" SIZE="10"/>
 </node>
-<node CREATED="1501210777345" ID="ID_948964523" MODIFIED="1501234461777" TEXT="return area ? area-&gt;L(dg.p, dg.nn, wo) : Spectrum(0.);">
+<node CREATED="1506323210323" ID="ID_1811550706" MODIFIED="1506323210991" TEXT="Spectrum *c_transfer = arena.Alloc&lt;Spectrum&gt;(SHTerms(lmax));"/>
+<node CREATED="1506323217034" ID="ID_112465134" MODIFIED="1506323236760" TEXT="SHComputeDiffuseTransfer(p, Faceforward(n, wo),isect.rayEpsilon, scene, rng, nSamples, lmax,c_transfer);">
+<node CREATED="1506324006859" ID="ID_1264353508" MODIFIED="1506324007592" TEXT="for(int i=0; i&lt;SHTerms(lmax); ++i)">
+<node CREATED="1506324011794" ID="ID_1778333548" MODIFIED="1506324012200" TEXT="c_transfer[i]=0.f;"/>
+</node>
+<node COLOR="#338800" CREATED="1506324016586" ID="ID_74876871" MODIFIED="1506324221091" TEXT="uint32_t scramble[2]={rng.RandomUInt(), rng.RandomUInt()};"/>
+<node COLOR="#338800" CREATED="1506324020555" ID="ID_1858701225" MODIFIED="1506324223498" TEXT="float *Ylm=ALLOCA(float,SHTerms(lmax));"/>
+<node CREATED="1506324027315" ID="ID_182141958" MODIFIED="1506324040631" TEXT="for(int i=0; i&lt;nSamples; ++i)">
+<richcontent TYPE="NOTE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      // &#25105;&#35273;&#24471;&#19979;&#19968;&#34892;&#30340;nSamples&#24212;&#35813;&#20889;&#25104;2*nSamples&#65292;&#22240;&#20026;for&#24490;&#29615;&#37324;&#38754;&#26159;&#33293;&#36873;&#37319;&#26679;&#65292;&#26377;&#19968;&#21322;&#30340;&#37319;&#26679;&#28857;&#26159;&#34987;&#36807;&#28388;&#25481;&#30340;&#12290;
+    </p>
+  </body>
+</html>
+</richcontent>
+<node COLOR="#999999" CREATED="1506324048363" ID="ID_1090599837" MODIFIED="1506324050205" TEXT="// Sample _i_th direction and compute estimate for transfer coefficients">
+<font NAME="DejaVu Sans Mono for Powerline" SIZE="10"/>
+</node>
+<node COLOR="#338800" CREATED="1506324058411" ID="ID_285126402" MODIFIED="1506324106788" TEXT="float u[2];"/>
+<node CREATED="1506324062011" ID="ID_1100694129" MODIFIED="1506324063921" TEXT="Sample02(i,scramble,u);"/>
+<node COLOR="#338800" CREATED="1506324065755" FOLDED="true" ID="ID_160662933" MODIFIED="1506324285810" TEXT="Vector w=UniformSampleSphere(u[0],u[1]);">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
+<node COLOR="#338800" CREATED="1506324251795" ID="ID_539413744" MODIFIED="1506324267084">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      float z=1.f-2.f * u1;
+    </p>
+    <p>
+      float r=sqrtf(max(0.f,1.f-z*z));
+    </p>
+    <p>
+      float phi=2.f * M_PI * u2;
+    </p>
+    <p>
+      float x=r * cosf(phi);
+    </p>
+    <p>
+      float y=r * sinf(phi);
+    </p>
+    <p>
+      return Vector(x,y,z);
+    </p>
+  </body>
+</html>
+</richcontent>
 </node>
 </node>
+<node CREATED="1506324068891" ID="ID_1348280728" MODIFIED="1506324070713" TEXT="float pdf=UniformSpherePdf();">
+<node CREATED="1506324304939" ID="ID_295434382" MODIFIED="1506324305856" TEXT="return 1.f/(4.f * M_PI);"/>
+</node>
+<node CREATED="1506324072947" FOLDED="true" ID="ID_1762858538" MODIFIED="1506326222069" TEXT="if(Dot(w,n)&gt;0.f&amp;&amp;!scene-&gt;IntersectP(Ray(p,w,rayEpsilon)))">
+<node COLOR="#999999" CREATED="1506324077491" ID="ID_810249479" MODIFIED="1506324079102" TEXT="// Accumulate contribution of direction $\w{}$ to transfer coefficients">
+<font NAME="DejaVu Sans Mono for Powerline" SIZE="10"/>
+</node>
+<node CREATED="1506324082490" ID="ID_391366871" MODIFIED="1506324084264" TEXT="SHEvaluate(w,lmax,Ylm);">
+<node CREATED="1506324347260" ID="ID_124082744" MODIFIED="1506324356087">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      if(lmax&gt;28){
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;Error(&quot;SHEvaluate() runs out of numerical precision for lmax &gt; 28. &quot;
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&quot;If you need more bands, try recompiling using doubles.&quot;);
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;exit(1);
+    </p>
+    <p>
+      &#160;&#160;}
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
+<node COLOR="#999999" CREATED="1506324368042" ID="ID_830540200" MODIFIED="1506324369790" TEXT="// Compute Legendre polynomial values for $\cos\theta$">
+<font NAME="DejaVu Sans Mono for Powerline" SIZE="10"/>
+</node>
+<node CREATED="1506324373811" ID="ID_941715674" MODIFIED="1506324376274" TEXT="Assert(w.Length()&gt;.995f &amp;&amp; w.Length()&lt;1.005f);"/>
+<node CREATED="1506324378331" ID="ID_706422069" MODIFIED="1506324378872" TEXT="legendrep(w.z,lmax,out);"/>
+<node COLOR="#999999" CREATED="1506324385466" ID="ID_916401697" MODIFIED="1506324386754" TEXT="// Compute $K_l^m$ coefficients">
+<font NAME="DejaVu Sans Mono for Powerline" SIZE="10"/>
+</node>
+<node COLOR="#338800" CREATED="1506324390611" ID="ID_1081681306" MODIFIED="1506324409099" TEXT="float *Klm=ALLOCA(float,SHTerms(lmax));"/>
+<node CREATED="1506324401019" ID="ID_456707521" MODIFIED="1506324403398">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      for(int l=0; l&lt;=lmax; ++l)
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;for(int m=-l; m&lt;=l; ++m)
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;Klm[SHIndex(l,m)]=K(l,m);
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
+<node COLOR="#999999" CREATED="1506324418708" ID="ID_865090944" MODIFIED="1506324419710" TEXT=" // Compute $\sin\phi$ and $\cos\phi$ values">
+<font NAME="DejaVu Sans Mono for Powerline" SIZE="10"/>
+</node>
+<node COLOR="#338800" CREATED="1506324423931" ID="ID_1008020021" MODIFIED="1506324426563" TEXT="float *sins=ALLOCA(float,lmax+1),*coss=ALLOCA(float,lmax+1);"/>
+<node COLOR="#338800" CREATED="1506324429828" ID="ID_356861259" MODIFIED="1506324438315" TEXT="float xyLen=sqrtf(max(0.f,1.f-w.z*w.z));"/>
+<node CREATED="1506324443740" ID="ID_69714942" MODIFIED="1506324445530" TEXT="if(xyLen==0.f)">
+<node CREATED="1506324447947" ID="ID_1759649730" MODIFIED="1506324448288" TEXT="for(int i=0; i&lt;=lmax; ++i) sins[i]=0.f;"/>
+<node CREATED="1506324452626" ID="ID_1707228044" MODIFIED="1506324452960" TEXT="for(int i=0; i&lt;=lmax; ++i) coss[i]=1.f;"/>
+</node>
+<node CREATED="1506324460451" ID="ID_1073251991" MODIFIED="1506324465448" TEXT="else">
+<node CREATED="1506324466331" ID="ID_1522029165" MODIFIED="1506324466912" TEXT="sinCosIndexed(w.y/xyLen,w.x/xyLen,lmax+1,sins,coss);"/>
+</node>
+<node COLOR="#999999" CREATED="1506324486419" ID="ID_400777393" MODIFIED="1506324487677" TEXT="// Apply SH definitions to compute final $(l,m)$ values">
+<font NAME="DejaVu Sans Mono for Powerline" SIZE="10"/>
+</node>
+<node COLOR="#338800" CREATED="1506324491099" ID="ID_1289114382" MODIFIED="1506324494764" TEXT="static const float sqrt2=sqrtf(2.f);"/>
+<node CREATED="1506324512851" ID="ID_1222625812" MODIFIED="1506324515495">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      for(int l=0; l&lt;=lmax; ++l){
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;for(int m=-l; m&lt;0; ++m){
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;out[SHIndex(l,m)]=sqrt2 * Klm[SHIndex(l,m)]*
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;out[SHIndex(l,-m)]*sins[-m];
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;Assert(!isnan(out[SHIndex(l,m)]));
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;Assert(!isinf(out[SHIndex(l,m)]));
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;}
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;out[SHIndex(l,0)]*=Klm[SHIndex(l,0)];
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;for(int m=1; m&lt;=l; ++m){
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;out[SHIndex(l,m)]*=sqrt2 * Klm[SHIndex(l,m)]*coss[m];
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;Assert(!isnan(out[SHIndex(l,m)]));
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;Assert(!isinf(out[SHIndex(l,m)]));
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;}
+    </p>
+    <p>
+      &#160;&#160;}
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
+</node>
+<node CREATED="1506324086034" ID="ID_1120514446" MODIFIED="1506326199691" TEXT="for(int j=0; j&lt;SHTerms(lmax); ++j)">
+<node CREATED="1506324091779" ID="ID_761138051" MODIFIED="1506324092370" TEXT="c_transfer[j]+=(Ylm[j]*AbsDot(w,n))/(pdf * nSamples);"/>
+</node>
+</node>
+</node>
+</node>
+<node COLOR="#999999" CREATED="1506323247363" ID="ID_169425952" MODIFIED="1506323249196" TEXT="// Compute integral of product of incident radiance and transfer function">
+<font NAME="DejaVu Sans Mono for Powerline" SIZE="10"/>
+</node>
+<node COLOR="#338800" CREATED="1506323253731" ID="ID_290272245" MODIFIED="1506323268443" TEXT="Spectrum Kd = bsdf-&gt;rho(wo, rng, BSDF_ALL_REFLECTION) * INV_PI;"/>
+<node COLOR="#338800" CREATED="1506323258402" ID="ID_1562938423" MODIFIED="1506323269323" TEXT="Spectrum Lo = 0.f;"/>
 <node COLOR="#999999" CREATED="1501154448519" ID="ID_725044199" MODIFIED="1501234461777" TEXT="// Add contribution of each light source">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="10"/>
 </node>
-<node CREATED="1501154579016" ID="ID_1169883430" MODIFIED="1502104307486" TEXT="for (uint32_t i = 0; i &lt; scene-&gt;lights.size(); ++i) ">
+<node CREATED="1501154579016" ID="ID_1169883430" MODIFIED="1506323181960" TEXT="for (int i = 0; i &lt; SHTerms(lmax); ++i)">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
-<node COLOR="#338800" CREATED="1501154624719" ID="ID_276644104" MODIFIED="1501234461777" TEXT="Vector wi;float pdf;VisibilityTester visibility;">
-<font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
+<node CREATED="1506323169163" ID="ID_261917750" MODIFIED="1506323170455" TEXT="Lo += c_in[i] * c_transfer[i];"/>
 </node>
-<node CREATED="1501154657128" ID="ID_1501515829" MODIFIED="1501831507039" TEXT="Spectrum Li = scene-&gt;lights[i]-&gt;Sample_L(p, isect.rayEpsilon,LightSample(rng), ray.time, &amp;wi, &amp;pdf, &amp;visibility);">
-<font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
-<node CREATED="1501155470552" ID="ID_1861122130" MODIFIED="1501234461777">
-<richcontent TYPE="NODE"><html>
-  <head>
-    
-  </head>
-  <body>
-    <p>
-      *wi=Normalize(lightPos-p);
-    </p>
-    <p>
-      *pdf=1.f;
-    </p>
-    <p>
-      visibility-&gt;SetSegment(p,pEpsilon,lightPos,0.,time);
-    </p>
-    <p>
-      return Intensity/DistanceSquared(lightPos,p);
-    </p>
-  </body>
-</html></richcontent>
-<font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
-</node>
-</node>
-<node CREATED="1501154669823" ID="ID_1227897206" MODIFIED="1501234461777" TEXT="if (Li.IsBlack() || pdf == 0.f) continue;">
-<font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
-</node>
-<node CREATED="1501154674511" ID="ID_1574574756" MODIFIED="1502195114219" TEXT="Spectrum f = bsdf-&gt;f(wo, wi);">
-<font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
-</node>
-<node CREATED="1501154682672" ID="ID_995696333" MODIFIED="1501831510070" TEXT="if (!f.IsBlack() &amp;&amp; visibility.Unoccluded(scene))">
-<font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
-<node CREATED="1501154688623" ID="ID_777834603" MODIFIED="1501234461762" TEXT="L += f * Li * AbsDot(wi, n) *visibility.Transmittance(scene, renderer,sample, rng, arena) / pdf;">
+<node CREATED="1501154592959" ID="ID_1031088743" MODIFIED="1506323141264" TEXT="return L + Kd * Lo.Clamp()">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
 </node>
 </node>
 </node>
-<node CREATED="1501154592959" ID="ID_1031088743" MODIFIED="1501744366426" TEXT="if (ray.depth + 1 &lt; maxDepth)">
-<font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
-<node COLOR="#999999" CREATED="1501154727263" ID="ID_976006635" MODIFIED="1501234461762" TEXT=" // Trace rays for specular reflection and refraction">
-<font NAME="DejaVu Sans Mono for Powerline" SIZE="10"/>
-</node>
-<node CREATED="1501154733968" ID="ID_1641369673" MODIFIED="1503314285443" TEXT="L += SpecularReflect(ray, bsdf, rng, isect, renderer, scene, sample,arena);">
-<font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
-<node COLOR="#338800" CREATED="1501161161652" ID="ID_557770827" MODIFIED="1501161171373">
-<richcontent TYPE="NODE"><html>
-  <head>
-    
-  </head>
-  <body>
-    <p>
-      Vector wo=-ray.d,wi;
-    </p>
-    <p>
-      float pdf;
-    </p>
-    <p>
-      const Point &amp;p=bsdf-&gt;dgShading.p;
-    </p>
-    <p>
-      const Normal &amp;n=bsdf-&gt;dgShading.nn;
-    </p>
-  </body>
-</html></richcontent>
-</node>
-<node CREATED="1501161178076" ID="ID_796875059" MODIFIED="1501161188746" TEXT="Spectrum f=bsdf-&gt;Sample_f(wo,&amp;wi,BSDFSample(rng),&amp;pdf, BxDFType(BSDF_REFLECTION|BSDF_SPECULAR));"/>
-<node COLOR="#338800" CREATED="1501161204037" ID="ID_345290455" MODIFIED="1501161206621" TEXT=" Spectrum L=0.f;"/>
-<node CREATED="1501161214524" ID="ID_1619390903" MODIFIED="1503314333330" TEXT="if(pdf&gt;0.f&amp;&amp;!f.IsBlack()&amp;&amp;AbsDot(wi,n)!=0.f)">
-<node COLOR="#999999" CREATED="1501161220893" ID="ID_224369119" MODIFIED="1501161223421" TEXT="// Compute ray differential _rd_ for specular reflection">
-<font NAME="SansSerif" SIZE="10"/>
-</node>
-<node CREATED="1501161230212" ID="ID_1642119104" MODIFIED="1501161230434" TEXT="RayDifferential rd(p,wi,ray,isect.rayEpsilon);"/>
-<node CREATED="1501161239197" FOLDED="true" ID="ID_1712290826" MODIFIED="1501744196116" TEXT="if(ray.hasDifferentials)">
-<node CREATED="1501161250852" ID="ID_1859597264" MODIFIED="1501161299389">
-<richcontent TYPE="NODE"><html>
-  <head>
-    
-  </head>
-  <body>
-    <p>
-      rd.hasDifferentials=true;
-    </p>
-    <p>
-      rd.rxOrigin=p+isect.dg.dpdx;
-    </p>
-    <p>
-      rd.ryOrigin=p+isect.dg.dpdy;
-    </p>
-    <p>
-      // Compute differential reflected directions
-    </p>
-    <p>
-      Normal dndx=bsdf-&gt;dgShading.dndu * bsdf-&gt;dgShading.dudx+bsdf-&gt;dgShading.dndv * bsdf-&gt;dgShading.dvdx;
-    </p>
-    <p>
-      Normal dndy=bsdf-&gt;dgShading.dndu * bsdf-&gt;dgShading.dudy+bsdf-&gt;dgShading.dndv * bsdf-&gt;dgShading.dvdy;
-    </p>
-    <p>
-      Vector dwodx=-ray.rxDirection-wo,dwody=-ray.ryDirection-wo;
-    </p>
-    <p>
-      float dDNdx=Dot(dwodx,n)+Dot(wo,dndx);
-    </p>
-    <p>
-      float dDNdy=Dot(dwody,n)+Dot(wo,dndy);
-    </p>
-    <p>
-      rd.rxDirection=wi-dwodx+2*Vector(Dot(wo,n) * dndx+dDNdx * n);
-    </p>
-    <p>
-      rd.ryDirection=wi-dwody+2*Vector(Dot(wo,n) * dndy+dDNdy * n);
-    </p>
-  </body>
-</html></richcontent>
-</node>
-</node>
-<node COLOR="#006699" CREATED="1501161308389" ID="ID_1630674246" MODIFIED="1501505770858" TEXT="Spectrum Li=renderer-&gt;Li(scene,rd,sample,rng,arena);">
-<arrowlink DESTINATION="ID_1991648994" ENDARROW="Default" ENDINCLINATION="458;160;" ID="Arrow_ID_235931306" STARTARROW="None" STARTINCLINATION="65;170;"/>
-</node>
-<node CREATED="1501161325213" ID="ID_545376017" MODIFIED="1501161325418" TEXT="L=f * Li * AbsDot(wi,n)/pdf;"/>
-</node>
-<node CREATED="1501161332293" ID="ID_957208511" MODIFIED="1501161332556" TEXT="return L;"/>
-</node>
-<node CREATED="1501154743279" FOLDED="true" ID="ID_206889962" MODIFIED="1501744196209" TEXT="L += SpecularTransmit(ray, bsdf, rng, isect, renderer, scene, sample,arena);">
-<font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
-<node COLOR="#338800" CREATED="1501161530164" ID="ID_1035974868" MODIFIED="1501161742588">
-<richcontent TYPE="NODE"><html>
-  <head>
-    
-  </head>
-  <body>
-    <p>
-      Vector wo=-ray.d,wi;
-    </p>
-    <p>
-      float pdf;
-    </p>
-    <p>
-      const Point &amp;p=bsdf-&gt;dgShading.p;
-    </p>
-    <p>
-      const Normal &amp;n=bsdf-&gt;dgShading.nn;
-    </p>
-  </body>
-</html></richcontent>
-</node>
-<node CREATED="1501161579029" ID="ID_351934902" MODIFIED="1501161607102" TEXT="Spectrum f=bsdf-&gt;Sample_f(wo,&amp;wi,BSDFSample(rng),&amp;pdf,&#xa;BxDFType(BSDF_TRANSMISSION|BSDF_SPECULAR));"/>
-<node COLOR="#338800" CREATED="1501161204037" ID="ID_1713033387" MODIFIED="1501161206621" TEXT=" Spectrum L=0.f;"/>
-<node CREATED="1501161214524" FOLDED="true" ID="ID_1805254364" MODIFIED="1501744196202" TEXT="if(pdf&gt;0.f&amp;&amp;!f.IsBlack()&amp;&amp;AbsDot(wi,n)!=0.f)">
-<node COLOR="#999999" CREATED="1501161220893" ID="ID_912661433" MODIFIED="1501161223421" TEXT="// Compute ray differential _rd_ for specular reflection">
-<font NAME="SansSerif" SIZE="10"/>
-</node>
-<node CREATED="1501161230212" ID="ID_1960747999" MODIFIED="1501161230434" TEXT="RayDifferential rd(p,wi,ray,isect.rayEpsilon);"/>
-<node CREATED="1501161239197" FOLDED="true" ID="ID_1615077168" MODIFIED="1501744196117" TEXT="if(ray.hasDifferentials)">
-<node CREATED="1501161250852" ID="ID_1461343360" MODIFIED="1501161699198">
-<richcontent TYPE="NODE"><html>
-  <head>
-    
-  </head>
-  <body>
-    <p>
-      rd.hasDifferentials=true;
-    </p>
-    <p>
-      rd.rxOrigin=p+isect.dg.dpdx;
-    </p>
-    <p>
-      rd.ryOrigin=p+isect.dg.dpdy;
-    </p>
-    <p>
-      
-    </p>
-    <p>
-      float eta=bsdf-&gt;eta;
-    </p>
-    <p>
-      Vector w=-wo;
-    </p>
-    <p>
-      if(Dot(wo,n)&lt;0) eta=1.f/eta;
-    </p>
-    <p>
-      
-    </p>
-    <p>
-      Normal dndx=bsdf-&gt;dgShading.dndu * bsdf-&gt;dgShading.dudx+bsdf-&gt;dgShading.dndv * bsdf-&gt;dgShading.dvdx;
-    </p>
-    <p>
-      Normal dndy=bsdf-&gt;dgShading.dndu * bsdf-&gt;dgShading.dudy+bsdf-&gt;dgShading.dndv * bsdf-&gt;dgShading.dvdy;
-    </p>
-    <p>
-      
-    </p>
-    <p>
-      Vector dwodx=-ray.rxDirection-wo,dwody=-ray.ryDirection-wo;
-    </p>
-    <p>
-      float dDNdx=Dot(dwodx,n)+Dot(wo,dndx);
-    </p>
-    <p>
-      float dDNdy=Dot(dwody,n)+Dot(wo,dndy);
-    </p>
-    <p>
-      
-    </p>
-    <p>
-      float mu=eta * Dot(w,n)-Dot(wi,n);
-    </p>
-    <p>
-      float dmudx=(eta-(eta*eta*Dot(w,n))/Dot(wi,n)) * dDNdx;
-    </p>
-    <p>
-      float dmudy=(eta-(eta*eta*Dot(w,n))/Dot(wi,n)) * dDNdy;
-    </p>
-    <p>
-      
-    </p>
-    <p>
-      rd.rxDirection=wi+eta * dwodx-Vector(mu * dndx+dmudx * n);
-    </p>
-    <p>
-      rd.ryDirection=wi+eta * dwody-Vector(mu * dndy+dmudy * n);
-    </p>
-  </body>
-</html></richcontent>
-</node>
-</node>
-<node COLOR="#006699" CREATED="1501161308389" ID="ID_167951652" MODIFIED="1501505763089" TEXT="Spectrum Li=renderer-&gt;Li(scene,rd,sample,rng,arena);">
-<arrowlink DESTINATION="ID_1991648994" ENDARROW="Default" ENDINCLINATION="458;160;" ID="Arrow_ID_1395068675" STARTARROW="None" STARTINCLINATION="65;170;"/>
-</node>
-<node CREATED="1501161325213" ID="ID_117005457" MODIFIED="1501161325418" TEXT="L=f * Li * AbsDot(wi,n)/pdf;"/>
-</node>
-<node CREATED="1501161332293" ID="ID_1252963802" MODIFIED="1501161332556" TEXT="return L;"/>
-</node>
-</node>
-<node CREATED="1501154598287" ID="ID_1802163961" MODIFIED="1501234461762" TEXT="return L;">
-<font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
-</node>
-</node>
-</node>
-<node CREATED="1501158421945" ID="ID_705614495" MODIFIED="1501744199056" TEXT="else">
+<node CREATED="1501158421945" FOLDED="true" ID="ID_705614495" MODIFIED="1506322786118" TEXT="else">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
 <node COLOR="#999999" CREATED="1501158429478" ID="ID_1930260112" MODIFIED="1501234461746" TEXT="// Handle ray that doesn&apos;t intersect any geometry">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="10"/>

@@ -129,7 +129,7 @@
 </node>
 <node CREATED="1501137545998" ID="ID_1937136649" MODIFIED="1501744199048" TEXT="&#xa0;&#xa0;EnqueueTasks(renderTasks);">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
-<node CREATED="1501137568065" ID="ID_492310959" MODIFIED="1501754671398" TEXT="tasks[i]-&gt;Run();">
+<node CREATED="1501137568065" ID="ID_492310959" MODIFIED="1514377014515" TEXT="tasks[i]-&gt;Run();">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
 <node COLOR="#999999" CREATED="1501139896230" ID="ID_595909183" MODIFIED="1501234599542" TEXT="// Get sub-_Sampler_ for _SamplerRendererTask_">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="10"/>
@@ -462,8 +462,7 @@
       integrator
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 <linktarget COLOR="#b0b0b0" DESTINATION="ID_1991648994" ENDARROW="Default" ENDINCLINATION="108;-15;" ID="Arrow_ID_303581661" SOURCE="ID_444853147" STARTARROW="None" STARTINCLINATION="-581;501;"/>
 <linktarget COLOR="#b0b0b0" DESTINATION="ID_1991648994" ENDARROW="Default" ENDINCLINATION="458;160;" ID="Arrow_ID_235931306" SOURCE="ID_1630674246" STARTARROW="None" STARTINCLINATION="65;170;"/>
 <linktarget COLOR="#b0b0b0" DESTINATION="ID_1991648994" ENDARROW="Default" ENDINCLINATION="458;160;" ID="Arrow_ID_1395068675" SOURCE="ID_167951652" STARTARROW="None" STARTINCLINATION="65;170;"/>
@@ -475,7 +474,7 @@
 <node COLOR="#338800" CREATED="1501158380066" ID="ID_449137693" MODIFIED="1501234461777" TEXT="Spectrum localT;&#xa;if(!T) T=&amp;localT;&#xa;Intersection localIsect;&#xa;if(!isect) isect=&amp;localIsect;&#xa;Spectrum Li=0.f;">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
 </node>
-<node CREATED="1501158400066" ID="ID_1034243452" MODIFIED="1501744199051" TEXT="if(scene-&gt;Intersect(ray,isect))">
+<node CREATED="1501158400066" ID="ID_1034243452" MODIFIED="1514377040449" TEXT="if(scene-&gt;Intersect(ray,isect))">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
 <node CREATED="1501154229887" ID="ID_770764746" MODIFIED="1501831495374" TEXT="Li=surfaceIntegrator-&gt;Li(scene,this,ray,*isect,sample,rng,arena);">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
@@ -570,7 +569,7 @@
 <node COLOR="#999999" CREATED="1501154448519" ID="ID_725044199" MODIFIED="1501234461777" TEXT="// Add contribution of each light source">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="10"/>
 </node>
-<node CREATED="1501154579016" ID="ID_1169883430" MODIFIED="1502104307486" TEXT="for (uint32_t i = 0; i &lt; scene-&gt;lights.size(); ++i) ">
+<node CREATED="1501154579016" ID="ID_1169883430" MODIFIED="1514377186850" TEXT="for (uint32_t i = 0; i &lt; scene-&gt;lights.size(); ++i) ">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
 <node COLOR="#338800" CREATED="1501154624719" ID="ID_276644104" MODIFIED="1501234461777" TEXT="Vector wi;float pdf;VisibilityTester visibility;">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
@@ -618,7 +617,7 @@
 <node COLOR="#999999" CREATED="1501154727263" ID="ID_976006635" MODIFIED="1501234461762" TEXT=" // Trace rays for specular reflection and refraction">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="10"/>
 </node>
-<node CREATED="1501154733968" ID="ID_1641369673" MODIFIED="1503314285443" TEXT="L += SpecularReflect(ray, bsdf, rng, isect, renderer, scene, sample,arena);">
+<node CREATED="1501154733968" FOLDED="true" ID="ID_1641369673" MODIFIED="1514377162215" TEXT="L += SpecularReflect(ray, bsdf, rng, isect, renderer, scene, sample,arena);">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
 <node COLOR="#338800" CREATED="1501161161652" ID="ID_557770827" MODIFIED="1501161171373">
 <richcontent TYPE="NODE"><html>
@@ -648,7 +647,7 @@
 <font NAME="SansSerif" SIZE="10"/>
 </node>
 <node CREATED="1501161230212" ID="ID_1642119104" MODIFIED="1501161230434" TEXT="RayDifferential rd(p,wi,ray,isect.rayEpsilon);"/>
-<node CREATED="1501161239197" FOLDED="true" ID="ID_1712290826" MODIFIED="1501744196116" TEXT="if(ray.hasDifferentials)">
+<node CREATED="1501161239197" ID="ID_1712290826" MODIFIED="1514377149048" TEXT="if(ray.hasDifferentials)">
 <node CREATED="1501161250852" ID="ID_1859597264" MODIFIED="1501161299389">
 <richcontent TYPE="NODE"><html>
   <head>
@@ -699,7 +698,7 @@
 </node>
 <node CREATED="1501161332293" ID="ID_957208511" MODIFIED="1501161332556" TEXT="return L;"/>
 </node>
-<node CREATED="1501154743279" FOLDED="true" ID="ID_206889962" MODIFIED="1501744196209" TEXT="L += SpecularTransmit(ray, bsdf, rng, isect, renderer, scene, sample,arena);">
+<node CREATED="1501154743279" ID="ID_206889962" MODIFIED="1514377163360" TEXT="L += SpecularTransmit(ray, bsdf, rng, isect, renderer, scene, sample,arena);">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
 <node COLOR="#338800" CREATED="1501161530164" ID="ID_1035974868" MODIFIED="1501161742588">
 <richcontent TYPE="NODE"><html>
@@ -724,12 +723,12 @@
 </node>
 <node CREATED="1501161579029" ID="ID_351934902" MODIFIED="1501161607102" TEXT="Spectrum f=bsdf-&gt;Sample_f(wo,&amp;wi,BSDFSample(rng),&amp;pdf,&#xa;BxDFType(BSDF_TRANSMISSION|BSDF_SPECULAR));"/>
 <node COLOR="#338800" CREATED="1501161204037" ID="ID_1713033387" MODIFIED="1501161206621" TEXT=" Spectrum L=0.f;"/>
-<node CREATED="1501161214524" FOLDED="true" ID="ID_1805254364" MODIFIED="1501744196202" TEXT="if(pdf&gt;0.f&amp;&amp;!f.IsBlack()&amp;&amp;AbsDot(wi,n)!=0.f)">
+<node CREATED="1501161214524" FOLDED="true" ID="ID_1805254364" MODIFIED="1514377183366" TEXT="if(pdf&gt;0.f&amp;&amp;!f.IsBlack()&amp;&amp;AbsDot(wi,n)!=0.f)">
 <node COLOR="#999999" CREATED="1501161220893" ID="ID_912661433" MODIFIED="1501161223421" TEXT="// Compute ray differential _rd_ for specular reflection">
 <font NAME="SansSerif" SIZE="10"/>
 </node>
 <node CREATED="1501161230212" ID="ID_1960747999" MODIFIED="1501161230434" TEXT="RayDifferential rd(p,wi,ray,isect.rayEpsilon);"/>
-<node CREATED="1501161239197" FOLDED="true" ID="ID_1615077168" MODIFIED="1501744196117" TEXT="if(ray.hasDifferentials)">
+<node CREATED="1501161239197" ID="ID_1615077168" MODIFIED="1514377176987" TEXT="if(ray.hasDifferentials)">
 <node CREATED="1501161250852" ID="ID_1461343360" MODIFIED="1501161699198">
 <richcontent TYPE="NODE"><html>
   <head>

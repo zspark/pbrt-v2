@@ -432,8 +432,7 @@ float Anisotropic::Pdf(const Vector &wo,const Vector &wi) const{
   float anisotropic_pdf=0.f;
   if(ds>0.f && Dot(wo,wh)>0.f){
     float e=(ex * wh.x * wh.x+ey * wh.y * wh.y)/ds;
-    float d=sqrtf((ex+1.f) * (ey+1.f)) * INV_TWOPI *
-      powf(costhetah,e);
+    float d=sqrtf((ex+1.f) * (ey+1.f)) * INV_TWOPI * powf(costhetah,e);
     anisotropic_pdf=d/(4.f * Dot(wo,wh));
   }
   return anisotropic_pdf;
@@ -442,6 +441,7 @@ float Anisotropic::Pdf(const Vector &wo,const Vector &wi) const{
 
 Spectrum FresnelBlend::Sample_f(const Vector &wo,Vector *wi,
                                 float u1,float u2,float *pdf) const{
+  //此处实现采用均等概率在二者之间进行选择。
   if(u1<.5){
     u1=2.f * u1;
     // Cosine-sample the hemisphere, flipping the direction if necessary

@@ -70,7 +70,8 @@ int main(int argc, char *argv[]) {
     PBRT_STARTED_PARSING();
     if (filenames.size() == 0) {
         // Parse scene from standard input
-        ParseFile("-");
+        //ParseFile("-");
+      ParseFile("../scenes/bunny.pbrt");
     } else {
         // Parse scene from input files
         for (u_int i = 0; i < filenames.size(); i++)

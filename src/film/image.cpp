@@ -58,11 +58,9 @@ ImageFilm::ImageFilm(int xres,int yres,Filter *filt,const float crop[4],
   filterTable=new float[FILTER_TABLE_SIZE * FILTER_TABLE_SIZE];
   float *ftp=filterTable;
   for(int y=0; y<FILTER_TABLE_SIZE; ++y){
-	 float fy=((float)y+.5f) *
-		filter->yWidth/FILTER_TABLE_SIZE;
+	 float fy=((float)y+.5f) * filter->yWidth/FILTER_TABLE_SIZE;
 	 for(int x=0; x<FILTER_TABLE_SIZE; ++x){
-		float fx=((float)x+.5f) *
-		  filter->xWidth/FILTER_TABLE_SIZE;
+		float fx=((float)x+.5f) * filter->xWidth/FILTER_TABLE_SIZE;
 		*ftp++=filter->Evaluate(fx,fy);
 	 }
   }

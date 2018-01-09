@@ -28,8 +28,7 @@
       <i><font size="4">-MirrorMaterial-</font></i>
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
 <node CREATED="1501125313702" FOLDED="true" ID="ID_267505771" MODIFIED="1505879792065" POSITION="right" TEXT="void SamplerRenderer::Render(const Scene *scene)">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
@@ -540,7 +539,7 @@
 <node COLOR="#999999" CREATED="1501154448519" ID="ID_725044199" MODIFIED="1501829839362" TEXT="// Compute direct lighting for _DirectLightingIntegrator_ integrator">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="10"/>
 </node>
-<node CREATED="1501817680500" ID="ID_1702740476" MODIFIED="1502104284968" TEXT="if(scene-&gt;lights.size()&gt;0)">
+<node CREATED="1501817680500" FOLDED="true" ID="ID_1702740476" MODIFIED="1514085249202" TEXT="if(scene-&gt;lights.size()&gt;0)">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
 <node COLOR="#999999" CREATED="1501817696403" ID="ID_1702746994" MODIFIED="1501829839362" TEXT=" // Apply direct lighting strategy">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="10"/>

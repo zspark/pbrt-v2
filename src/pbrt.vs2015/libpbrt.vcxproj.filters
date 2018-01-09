@@ -85,9 +85,6 @@
     <Filter Include="Source Files\core">
       <UniqueIdentifier>{c6309fb5-cb15-400c-84b9-e78be4c79413}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\film">
-      <UniqueIdentifier>{a2878cce-2350-46a4-a4ba-cd79706001b4}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\filters">
       <UniqueIdentifier>{0f026584-4a57-4215-8dfa-76bfd32a497d}</UniqueIdentifier>
     </Filter>
@@ -120,6 +117,9 @@
     </Filter>
     <Filter Include="Source Files\3rdparty\tiff-3.9.4">
       <UniqueIdentifier>{cb4e6ae4-62ac-4eb3-afbd-99ce385b8ee3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\film">
+      <UniqueIdentifier>{a2878cce-2350-46a4-a4ba-cd79706001b4}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
