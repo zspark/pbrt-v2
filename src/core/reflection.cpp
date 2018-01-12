@@ -1,4 +1,4 @@
-
+ï»¿
 /*
     pbrt source code Copyright(c) 1998-2012 Matt Pharr and Greg Humphreys.
 
@@ -139,6 +139,7 @@ Spectrum SpecularReflection::Sample_f(const Vector &wo,
   // Compute perfect specular reflection direction
   *wi=Vector(-wo.x,-wo.y,wo.z);
   *pdf=1.f;
+	//è¿™é‡Œé™¤ä»¥coswiæ˜¯ä¸ºäº†åœ¨å¤–é¢å°†ä¹˜ä»¥coswiæ¶ˆæ‰ï¼›
   return fresnel->Evaluate(CosTheta(wo)) * R/AbsCosTheta(*wi);
 }
 
@@ -441,7 +442,7 @@ float Anisotropic::Pdf(const Vector &wo,const Vector &wi) const{
 
 Spectrum FresnelBlend::Sample_f(const Vector &wo,Vector *wi,
                                 float u1,float u2,float *pdf) const{
-  //´Ë´¦ÊµÏÖ²ÉÓÃ¾ùµÈ¸ÅÂÊÔÚ¶şÕßÖ®¼ä½øĞĞÑ¡Ôñ¡£
+  //æ­¤å¤„å®ç°é‡‡ç”¨å‡ç­‰æ¦‚ç‡åœ¨äºŒè€…ä¹‹é—´è¿›è¡Œé€‰æ‹©ã€‚
   if(u1<.5){
     u1=2.f * u1;
     // Cosine-sample the hemisphere, flipping the direction if necessary
@@ -522,7 +523,7 @@ Spectrum BSDF::Sample_f(const Vector &woW,Vector *wiW,
                         BxDFType flags,BxDFType *sampledType) const{
   PBRT_STARTED_BSDF_SAMPLE();
   // Choose which _BxDF_ to sample
-  // Ñ¡Ôñ×îºóÒ»¸öÆ¥ÅäµÄBxDF£»
+  // é€‰æ‹©æœ€åä¸€ä¸ªåŒ¹é…çš„BxDFï¼›
   int matchingComps=NumComponents(flags);
   if(matchingComps==0){
     *pdf=0.f;

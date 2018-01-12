@@ -1,4 +1,4 @@
-
+﻿
 /*
     pbrt source code Copyright(c) 1998-2012 Matt Pharr and Greg Humphreys.
 
@@ -102,6 +102,10 @@ void SHProjectCube(Func func, const Point &p, int res, int lmax,
 }
 
 
+/**
+ * p	世界空间下的一点，
+ *		表征的是该空间下所有物体最大AABB的中心，因此该值并不一定就是世界标架的原点；
+ */
 void SHProjectIncidentDirectRadiance(const Point &p, float pEpsilon, float time,
     MemoryArena &arena, const Scene *scene, bool computeLightVisibility,
     int lmax, RNG &rng, Spectrum *c_d);

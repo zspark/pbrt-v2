@@ -28,10 +28,9 @@
       <font size="4"><i>-MirrorMaterial-</i></font>
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
-<node CREATED="1501125313702" ID="ID_267505771" MODIFIED="1502196433043" POSITION="right" TEXT="void SamplerRenderer::Render(const Scene *scene)">
+<node CREATED="1501125313702" FOLDED="true" ID="ID_267505771" MODIFIED="1515502901402" POSITION="right" TEXT="void SamplerRenderer::Render(const Scene *scene)">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
 <node COLOR="#999999" CREATED="1501125647527" ID="ID_343582769" MODIFIED="1501234599558" TEXT="// Allow integrators to do preprocessing for the scene">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="10"/>
@@ -453,7 +452,7 @@
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
 </node>
 </node>
-<node CREATED="1501158278298" ID="ID_1991648994" MODIFIED="1502192567977" POSITION="right" TEXT="Spectrum SamplerRenderer::Li(const Scene *scene,const RayDifferential &amp;ray,const Sample *sample,RNG &amp;rng,MemoryArena &amp;arena,Intersection *isect,Spectrum *T)">
+<node CREATED="1501158278298" FOLDED="true" ID="ID_1991648994" MODIFIED="1515502898866" POSITION="right" TEXT="Spectrum SamplerRenderer::Li(const Scene *scene,const RayDifferential &amp;ray,const Sample *sample,RNG &amp;rng,MemoryArena &amp;arena,Intersection *isect,Spectrum *T)">
 <linktarget COLOR="#b0b0b0" DESTINATION="ID_1991648994" ENDARROW="Default" ENDINCLINATION="108;-15;" ID="Arrow_ID_303581661" SOURCE="ID_444853147" STARTARROW="None" STARTINCLINATION="-581;501;"/>
 <linktarget COLOR="#b0b0b0" DESTINATION="ID_1991648994" ENDARROW="Default" ENDINCLINATION="458;160;" ID="Arrow_ID_235931306" SOURCE="ID_1630674246" STARTARROW="None" STARTINCLINATION="65;170;"/>
 <linktarget COLOR="#b0b0b0" DESTINATION="ID_1991648994" ENDARROW="Default" ENDINCLINATION="458;160;" ID="Arrow_ID_1395068675" SOURCE="ID_167951652" STARTARROW="None" STARTINCLINATION="65;170;"/>

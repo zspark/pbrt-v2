@@ -61,7 +61,7 @@
 <node CREATED="1500862035305" ID="ID_482734171" MODIFIED="1501818010681" TEXT="DiffusePRTIntegrator">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
 </node>
-<node CREATED="1500879574572" ID="ID_105334429" MODIFIED="1514376989985" TEXT="DirectLightIntegraor">
+<node CREATED="1500879574572" ID="ID_105334429" MODIFIED="1515502428960" TEXT="DirectLightIntegraor">
 <richcontent TYPE="NOTE"><html>
   <head>
     

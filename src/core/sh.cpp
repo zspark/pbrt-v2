@@ -1,4 +1,4 @@
-
+ï»¿
 /*
    pbrt source code Copyright(c) 1998-2012 Matt Pharr and Greg Humphreys.
 
@@ -41,6 +41,7 @@
 #include <float.h>
 
 // Spherical Harmonics Local Definitions
+// å‚æ•°xåœ¨ä¹¦ä¸­è¡¨ç¤ºcostheta
 static void legendrep(float x,int lmax,float *out){
 #define P(l,m) out[SHIndex(l,m)]
   // Compute $m=0$ Legendre values using recurrence
@@ -176,6 +177,7 @@ void SHEvaluate(const Vector &w,int lmax,float *out){
 
   // Compute Legendre polynomial values for $\cos\theta$
   Assert(w.Length()>.995f && w.Length()<1.005f);
+	// legendreçš„è®¡ç®—æ˜¯åœ¨ä¸–ç•Œç©ºé—´ä¸‹ï¼›wæ˜¯ä¸–ç•Œç©ºé—´ä¸‹çš„æ–¹å‘ï¼›
   legendrep(w.z,lmax,out);
 
   // Compute $K_l^m$ coefficients
@@ -400,7 +402,7 @@ void SHComputeDiffuseTransfer(const Point &p,const Normal &n,
   uint32_t scramble[2]={rng.RandomUInt(), rng.RandomUInt()};
   float *Ylm=ALLOCA(float,SHTerms(lmax));
 
-  // ÎÒ¾õµÃÏÂÒ»ÐÐµÄnSamplesÓ¦¸ÃÐ´³É2*nSamples£¬ÒòÎªforÑ­»·ÀïÃæÊÇÉáÑ¡²ÉÑù£¬ÓÐÒ»°ëµÄ²ÉÑùµãÊÇ±»¹ýÂËµôµÄ¡£
+  // æˆ‘è§‰å¾—ä¸‹ä¸€è¡Œçš„nSamplesåº”è¯¥å†™æˆ2*nSamplesï¼Œå› ä¸ºforå¾ªçŽ¯é‡Œé¢æ˜¯èˆé€‰é‡‡æ ·ï¼Œæœ‰ä¸€åŠçš„é‡‡æ ·ç‚¹æ˜¯è¢«è¿‡æ»¤æŽ‰çš„ã€‚
   for(int i=0; i<nSamples; ++i){
     // Sample _i_th direction and compute estimate for transfer coefficients
     float u[2];

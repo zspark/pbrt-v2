@@ -30,7 +30,7 @@
   </body>
 </html></richcontent>
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
-<node CREATED="1501125313702" FOLDED="true" ID="ID_267505771" MODIFIED="1515502793807" POSITION="right" TEXT="void SamplerRenderer::Render(const Scene *scene)">
+<node CREATED="1501125313702" FOLDED="true" ID="ID_267505771" MODIFIED="1515503239114" POSITION="right" TEXT="void SamplerRenderer::Render(const Scene *scene)">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
 <node COLOR="#999999" CREATED="1501125647527" ID="ID_343582769" MODIFIED="1501234599558" TEXT="// Allow integrators to do preprocessing for the scene">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="10"/>
@@ -476,7 +476,7 @@
 </node>
 <node CREATED="1501158400066" ID="ID_1034243452" MODIFIED="1514377040449" TEXT="if(scene-&gt;Intersect(ray,isect))">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
-<node CREATED="1501154229887" FOLDED="true" ID="ID_770764746" MODIFIED="1515502763858" TEXT="Li=surfaceIntegrator-&gt;Li(scene,this,ray,*isect,sample,rng,arena);">
+<node CREATED="1501154229887" ID="ID_770764746" MODIFIED="1515550436757" TEXT="Li=surfaceIntegrator-&gt;Li(scene,this,ray,*isect,sample,rng,arena);">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
 <node COLOR="#999999" CREATED="1501154393999" ID="ID_1769148932" MODIFIED="1501234461777" TEXT="// Compute emitted and reflected light at ray intersection point">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="10"/>
@@ -617,7 +617,7 @@
 <node COLOR="#999999" CREATED="1501154727263" ID="ID_976006635" MODIFIED="1501234461762" TEXT=" // Trace rays for specular reflection and refraction">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="10"/>
 </node>
-<node CREATED="1501154733968" FOLDED="true" ID="ID_1641369673" MODIFIED="1514377162215" TEXT="L += SpecularReflect(ray, bsdf, rng, isect, renderer, scene, sample,arena);">
+<node CREATED="1501154733968" FOLDED="true" ID="ID_1641369673" MODIFIED="1515550537999" TEXT="L += SpecularReflect(ray, bsdf, rng, isect, renderer, scene, sample,arena);">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
 <node COLOR="#338800" CREATED="1501161161652" ID="ID_557770827" MODIFIED="1501161171373">
 <richcontent TYPE="NODE"><html>
@@ -698,7 +698,7 @@
 </node>
 <node CREATED="1501161332293" ID="ID_957208511" MODIFIED="1501161332556" TEXT="return L;"/>
 </node>
-<node CREATED="1501154743279" ID="ID_206889962" MODIFIED="1514377163360" TEXT="L += SpecularTransmit(ray, bsdf, rng, isect, renderer, scene, sample,arena);">
+<node CREATED="1501154743279" FOLDED="true" ID="ID_206889962" MODIFIED="1515550560103" TEXT="L += SpecularTransmit(ray, bsdf, rng, isect, renderer, scene, sample,arena);">
 <font NAME="DejaVu Sans Mono for Powerline" SIZE="12"/>
 <node COLOR="#338800" CREATED="1501161530164" ID="ID_1035974868" MODIFIED="1501161742588">
 <richcontent TYPE="NODE"><html>
@@ -723,7 +723,7 @@
 </node>
 <node CREATED="1501161579029" ID="ID_351934902" MODIFIED="1501161607102" TEXT="Spectrum f=bsdf-&gt;Sample_f(wo,&amp;wi,BSDFSample(rng),&amp;pdf,&#xa;BxDFType(BSDF_TRANSMISSION|BSDF_SPECULAR));"/>
 <node COLOR="#338800" CREATED="1501161204037" ID="ID_1713033387" MODIFIED="1501161206621" TEXT=" Spectrum L=0.f;"/>
-<node CREATED="1501161214524" FOLDED="true" ID="ID_1805254364" MODIFIED="1514377183366" TEXT="if(pdf&gt;0.f&amp;&amp;!f.IsBlack()&amp;&amp;AbsDot(wi,n)!=0.f)">
+<node CREATED="1501161214524" ID="ID_1805254364" MODIFIED="1515550545521" TEXT="if(pdf&gt;0.f&amp;&amp;!f.IsBlack()&amp;&amp;AbsDot(wi,n)!=0.f)">
 <node COLOR="#999999" CREATED="1501161220893" ID="ID_912661433" MODIFIED="1501161223421" TEXT="// Compute ray differential _rd_ for specular reflection">
 <font NAME="SansSerif" SIZE="10"/>
 </node>
